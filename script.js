@@ -427,6 +427,7 @@ function draw() {
     if(backButton.mouse.presses()){
       screen = 0;
        musicToggle(); 
+      
 
       goLvl1.pos = {x: -500, y:-500};
        goLvl2.pos = {x: -500, y:-500};
@@ -1407,6 +1408,7 @@ function draw() {
   {
       storeOpen();
       mermaid1a();
+     musicToggle(); 
     if(kb.presses("n"))
     {
       screen = 251; 
@@ -1416,6 +1418,7 @@ function draw() {
   if (screen == 251)
   {
     mermaid1b();
+     musicToggle(); 
 
     if (kb.presses('e'))
     {
@@ -1437,6 +1440,7 @@ function draw() {
     background(backImg2);
     playerSetUp();
     shopSND.stop(); 
+     musicToggle(); 
     opening.stop(); 
     if(lvl1End) {lvl1End.y= -1000;}
    
@@ -1728,6 +1732,7 @@ function draw() {
     {
       
       mermaid2a(); 
+       musicToggle(); 
       storeOpen();
       storeBack.layer = 19;
       storeFront.layer = 30;
@@ -1741,6 +1746,7 @@ function draw() {
     if( screen == 255)
     {
       mermaid2b();
+       musicToggle(); 
       lvl2End.remove(); 
 
       if(kb.presses("e"))
@@ -1764,6 +1770,7 @@ function draw() {
     background(16,14,54);
     playerSetUp();
     shopSND.stop(); 
+     musicToggle(); 
   
     if(lvl2End) {lvl2End.y= -1000;}
     
@@ -2043,6 +2050,7 @@ function draw() {
   {
     storeOpen();
     mermaid3a(); 
+     musicToggle(); 
     storeFront.y = height/2;
     storeBack.y = height/2;
     storeFront.layer  = 30;
@@ -2057,6 +2065,7 @@ function draw() {
   if (screen == 420)
   {
     mermaid3b();
+     musicToggle(); 
     if (kb.presses('e'))
     {
       player.y = 350;
@@ -2081,6 +2090,7 @@ function draw() {
     background(backImg4);
     playerSetUp();
     lvl4Music(); 
+     musicToggle(); 
     shopSND.stop(); 
    if(lvl3End) {lvl3End.y= -1000;}
 
@@ -2519,6 +2529,7 @@ if (screen == 778)
 {
   storeOpen();
   mermaid4a();
+   musicToggle(); 
   storeFront.y = height/2;
   storeBack.y = height/2;
   storeFront.layer  = 30;
@@ -2532,6 +2543,7 @@ if (screen == 778)
   if (screen == 777)
   {
     mermaid4b();
+     musicToggle(); 
     if (kb.presses('e'))
     {
       player.y = 350;
@@ -2556,6 +2568,7 @@ if (screen == 778)
     background(backImg5);
     shopSND.stop(); 
     opening.stop(); 
+     musicToggle(); 
     if (kb.presses('enter')) {
        /* if(kb.pressing('w') || ( kb.pressing('s'))){
           player.vel.y *= 10;
