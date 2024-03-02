@@ -4,6 +4,7 @@
 function homeScreen() {
   screen = 0;
   background(titleBackImg);
+   musicToggle(); 
 
 
   //Game titleif(!textTitle){
@@ -22,12 +23,14 @@ function homeScreen() {
   playButton.textSize = 20;
   playButton.text = "Play!";
 
+ 
+
   //Directions button
   directionsButton = new Sprite(width/4 + width / 2, height / 2, 100, 50, 'k');
   directionsButton.color = color(106, 113, 173);
   directionsButton.textColor = "white";
   directionsButton.textSize = 15;
-  directionsButton.text = "TSA Stuff";
+  directionsButton.text = "Choose Level";
 
  
   textTitle = new Sprite(titleTextImg, windowWidth/2, windowHeight/2, "n");
@@ -39,15 +42,42 @@ function homeScreen() {
 
 function directionsScreen() {
   background(132, 141, 217);
+   musicToggle(); 
+
   playButton.pos = { x: -11200, y: -1300 };
   directionsButton.pos = { x: -1500, y: -4100 };
   textTitle.pos = { x: -1500, y: -4100 };
 
   //Directions (description of game)
-  fill(255);
-  textSize(15);
-  textAlign(CENTER, TOP);
-  text("here is our game \n isn't it great?")
+  goLvl1 = new Sprite(width / 2 - 150, height / 2 - 50, 100, 50, 'k');
+  goLvl1.color = color(106, 113, 173);
+  goLvl1.textColor = "white";
+  goLvl1.textSize = 20;
+  goLvl1.text = "Skip to \nLevel 1";
+
+  goLvl2 = new Sprite(width / 2 - 150, height / 2 + 50, 100, 50, 'k');
+  goLvl2.color = color(106, 113, 173);
+  goLvl2.textColor = "white";
+  goLvl2.textSize = 20;
+  goLvl2.text = "Skip to \nLevel 2";
+
+  goLvl3 = new Sprite(width / 2 + 150, height / 2 - 50, 100, 50, 'k');
+  goLvl3.color = color(106, 113, 173);
+  goLvl3.textColor = "white";
+  goLvl3.textSize = 20;
+  goLvl3.text = "Skip to \nLevel 3";
+
+  goLvl4 = new Sprite(width / 2 + 150, height / 2 + 50, 100, 50, 'k');
+  goLvl4.color = color(106, 113, 173);
+  goLvl4.textColor = "white";
+  goLvl4.textSize = 20;
+  goLvl4.text = "Skip to \nLevel 4";
+
+  goLvl5 = new Sprite(width / 2, height / 2 - 50, 100, 50, 'k');
+  goLvl5.color = color(106, 113, 173);
+  goLvl5.textColor = "white";
+  goLvl5.textSize = 20;
+  goLvl5.text = "Skip to \nLevel 5";
 
 
   //Back button
@@ -74,42 +104,70 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
   //player
 
   //(x,y,w,h,collider)
-  e1 = new enemies.Sprite(1300, 320, 20);
-  eh1 = new enemyHealthBar.Sprite(1300, 300, 50, 5, "n");
+  e1 = new enemies.Sprite(1700, 320, 20);
+  eh1 = new enemyHealthBar.Sprite(1700, 300, 50, 5, "n");
   
 
-  e2 = new enemies.Sprite(1200, 220, 20);
-  eh2 = new enemyHealthBar.Sprite(1200, 200, 50, 5, "n");
+  e2 = new enemies.Sprite(1600, 220, 20);
+  e2.scale = 1.3; 
+  eh2 = new enemyHealthBar.Sprite(1600, 200, 50, 5, "n");
  
   
 
 
   //RADIO LAMP 
-  lamp1 = new lamps.Sprite(lampImg, 300, 328);
-  lamp2 = new lamps.Sprite(lampImg, 1000, 328);
+  lamp1 = new lamps.Sprite(lampImg, 500, 328);
+  lamp2 = new lamps.Sprite(lampImg, 1300, 328);
 
   //TRIGGERING EVENTS
-  invis1 = new invisibles.Sprite(clearImg, 300, 200); 
-  invis2 = new invisibles.Sprite(clearImg, 1000, 200); 
+  invis1 = new invisibles.Sprite(clearImg, 500, 200); 
+  invis2 = new invisibles.Sprite(clearImg, 1300, 200); 
   //TEXT BUBBLES
 
 
 
   // design layout
-  rock1 = new rocks.Sprite (blockImg1, 500, 450, "s");
-  rock2 = new rocks.Sprite (blockImg1a, 500, 20, "s")
-  rock3 = new rocks.Sprite (blockImg1, 800, 20, "s");
-  rock4 = new rocks.Sprite (blockImg1a, 800, 450, "s")
+  ceiling = new  boundaries.Sprite(platImg, 400, 20, "n"); 
+  ceiling.mirror.y = true; 
+  rock1 = new  boundaries.Sprite (blockImg1, 800, 470, "s");
+  rock12 = new  boundaries.Sprite (blockImg1, 800, 395, "s");
+  rock13 = new  boundaries.Sprite(blockImg1, 800, 320, "s");
+  rock14 = new  boundaries.Sprite(blockImg1, 800, 245, "s");
+  rock2 = new  boundaries.Sprite (blockImg1a, 800, 20, "s");
 
-  r1 = new rocks.Sprite(rockOneImg, 600, 500, "n");
-  r2 = new rocks.Sprite(rockOneImg, 730, 500, "n");
+  
+  rock3 = new  boundaries.Sprite (blockImg1, 1100, 20, "s");
+  rock32 = new  boundaries.Sprite (blockImg1a, 1100, 95, "s");
+  rock33 = new  boundaries.Sprite (blockImg1a, 1100, 170, "s");
+  rock34 = new  boundaries.Sprite (blockImg1, 1100, 395, "s");
+  rock4 = new  boundaries.Sprite (blockImg1a, 1100, 470, "s");
+
+  r1 = new rocks.Sprite(rockOneImg, 300, 500, "n");
+  r2 = new rocks.Sprite(rockOneImg, 170, 500, "n");
   r3 = new rocks.Sprite(rockOneImg, 670, 510, "n");
-  boundary = new rocks.Sprite(rockBoundary, 0, 300, "s")
+  r4 = new rocks.Sprite(rockOneImg, 950, 490, "n");
+  r5 = new rocks.Sprite(rockOneImg, 1200, 490, "n");
+  r6 = new rocks.Sprite(rockOneImg, 1600, 490, "n");
+  r7 = new rocks.Sprite(rockOneImg, 2500, 490, "n");
+
+  c1 = new rocks.Sprite(coralImg, 1700, 490, "n");
+  c2 = new rocks.Sprite(coralImg, 1500, 470, "n"); 
+  
+  boundary = new  boundaries.Sprite(rockBoundary, 0, 300, "s")
+  boundary.text = "WASD or \nARROW KEYS \nto move. Press M to \ntoggle the music!\n ---S4LM0N";
+  boundary.textColor = "grey";
+  boundary.textSize = 15;
   boundary1 = new rocks.Sprite(rockBoundary, -300, 300, "s")
   boundary1.mirror.x = true;
+  //fishSTOP = new rocks.Sprite(clearImg, rockBoundary.x , 250, "s"); 
+  
   r2.scale = 1.3; 
   r3.scale =.6; 
+  r4.scale = .75;
+  r5.scale = 0.25; 
+  r6.mirror.x = true; 
   r3.mirror.x = true; 
+  c1.scale = 0.5; 
   
   
 
@@ -123,6 +181,7 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
  
   ground.friction = 0;
   ground.x = camera.x;
+  ceiling.x = camera.x; 
   getPlayer();
 
   player.pos = { x: 200, y: 350 };
@@ -132,7 +191,7 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
 
 
   //Extra mobility for the player 
-  
+  /*
   ang1 = new angles.Sprite(player.x, player.y - 100, "n"); //up
   ang2 = new angles.Sprite(player.x, player.y + 100, "n"); //down
   ang3 = new angles.Sprite(player.x - 50, player.y + 100, "n"); //northwest
@@ -151,15 +210,17 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
   ang7.x = player.x + 50; ang7.y = player.y;
   ang8.x = player.x - 50; ang8.y = player.y;
   
+*/
 
-
-  theEnd = new doors.Sprite(); 
-  theEnd.x = 1650; 
+if(!theEnd) { theEnd = new doors.Sprite(); 
+  theEnd.x = 2050; 
+  theEnd.y = 300; 
   theEnd.color = "black";
   theEnd.image = endGoalImg; 
   g1 = new Sprite(clearImg, theEnd.x, theEnd.y, "n");
   g1.layer = 1; 
   theEnd.layer = 5; 
+            }
 
   //end of tutorial
   
