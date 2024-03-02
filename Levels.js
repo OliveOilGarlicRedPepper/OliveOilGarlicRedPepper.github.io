@@ -1373,7 +1373,7 @@ function mermaid5a() // Abi
      volcanoMermaid.layer = 20;
     } 
   txt99 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-    txt99.text =" You did it! you defeated the volcano fish! \n Press N to continue."; 
+    txt99.text =" You did it! you defeated the \n volcano fish! \n Press N to continue."; 
     txt99.textSize = 10;
     txt99.layer = 35;
    ground.image = clearImg;
