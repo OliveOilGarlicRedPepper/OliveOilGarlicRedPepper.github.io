@@ -236,8 +236,8 @@ screen = 30;
 
   e9 = new enemies.Sprite(1860, 50, 20);
   eh9 = new enemyHealthBar.Sprite(1860, -10, 50, 5, "n");
-  e9.x = o35.x; 
-  e9.y = o35.y; 
+  e9.x = o36.x; 
+  e9.y = o36.y; 
 
   e10 = new enemies.Sprite(1860, 50, 20);
   eh10 = new enemyHealthBar.Sprite(1860, -10, 50, 5, "n");
@@ -253,8 +253,8 @@ screen = 30;
 
   e12 = new enemies.Sprite(1860, 50, 20);
   eh12 = new enemyHealthBar.Sprite(1860, -10, 50, 5, "n");
-  e12.x = o29.x; 
-  e12.y = o29.y;
+  e12.x = o31.x; 
+  e12.y = o31.y;
   
 
   e13 = new enemies.Sprite(1860, 50, 20);
@@ -869,7 +869,7 @@ ground.image = groundImg5;
 
   
   if (!lvl5End) {  // Check if lvl1End has not been created
-    lvl5End = new Sprite(endGoalImg, -8500, 300, "k");
+    lvl5End = new Sprite(endGoalImg, -8250, 300, "k");
     lvl5End.color = "black";
      g1 = new Sprite(glow2Img, lvl5End.x, lvl5End.y, "n");
     g1.layer = lvl5End.layer - 1; 
@@ -959,7 +959,9 @@ ground.image = groundImg5;
 
  
 
-  invis07 = new invisibles.Sprite(clearImg, -1850, 200)
+  invis07 = new invisibles.Sprite(clearImg, -1850, 200);
+   radio8 = new lamps.Sprite(lampImg, -7000, 328);
+  invis08 = new invisibles.Sprite(clearImg, -7000,200); 
 
   vr11 = new  boundaries.Sprite (blockImg5, -3300, 20, "s");
   vr12 = new  boundaries.Sprite (blockImg5, -3300, 95, "s");
@@ -1200,13 +1202,13 @@ function mermaid2a() // sydeny
   cafeMusic(); 
   if(!storeBack)
     {
-        storeBack = new Sprite(storeBackImg, camera.x, height/2, "n");
+        storeBack = new stores.Sprite(storeBackImg, camera.x, height/2, "n");
    }
   storeBack.x = camera.x;
   storeBack.y = height/2;
    if(!storeFront)
    {
-      storeFront = new Sprite(storeFrontImg, camera.x, height/2, "n");
+      storeFront = new stores.Sprite(storeFrontImg, camera.x, height/2, "n");
   }
   storeFront.x = camera.x;
   storeFront.y = height/2;
@@ -1275,7 +1277,7 @@ function mermaid3a() // Natalia
    shipMermaid.layer = 20;
   } 
 txt69 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-  txt69.text ="Arghhh matey you made it thorough \nthe wreck! Very impressive \nPress N to continue.";
+  txt69.text ="Argh matey'o, ya made it through \nthe wreck! Aye, very impressive... \nPress N to continue.";
   txt69.textSize = 10;
   txt69.layer = 35;
   storeBack.x = camera.x;
@@ -1295,7 +1297,7 @@ function mermaid3b()
      shipMermaid.image = MerNat2Img;
 
        txt420 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-       txt420.text =" You want some treasure? \n how about a speed boost?\nPress E to leave.";
+       txt420.text ="Ya want some treasure? \n How'bout swiftness! Harharhar! \nPress E to leave.";
        txt420.textSize = 10;
   txt420.layer = 35;
    
@@ -1377,7 +1379,7 @@ function mermaid5a() // Abi
      volcanoMermaid.layer = 20;
     } 
   txt99 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-    txt99.text =" You did it! you defeated the \n volcano fish! \n Press N to continue."; 
+    txt99.text ="You did it! You defeated the \n volcano fish that plagued these lands! \n Press N to continue."; 
     txt99.textSize = 10;
     txt99.layer = 35;
    ground.image = clearImg;
@@ -1393,7 +1395,7 @@ function mermaid5b()
      volcanoMermaid.image = MerAbi2Img;
 
        txt999 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-       txt999.text ="Thank you for your help! \n press E to leave";
+       txt999.text ="We'd all like to thank you\nfor your help! \n Press E to leave";
        txt999.textSize = 10;
   txt999.layer = 35;
   
@@ -1510,26 +1512,26 @@ function theEND(){
    } 
   volcanoMermaid.y = height/2 + 100;
 
-  if(!whaleMermaid)
+  if(!whaleMermaid2)
    {
-    whaleMermaid = new Sprite(MerHgtv2Img,camera.x - +450, height/2 + 70, "n");
-    whaleMermaid.layer = 20;
+    whaleMermaid2 = new Sprite(MerHgtv2Img,camera.x - +450, height/2 + 70, "n");
+    whaleMermaid2.layer = 20;
    } 
 
-  if(!shipMermaid)
+  if(!shipMermaid2)
    {
-     shipMermaid = new Sprite(MerNat2Img,camera.x + 250, height/2 +100, "n");
-    shipMermaid.layer = 20;
+     shipMermaid2 = new Sprite(MerNat2Img,camera.x + 250, height/2 +100, "n");
+    shipMermaid2.layer = 20;
    } 
-  if(!coralMermaid)
+  if(!coralMermaid2)
   {
-    coralMermaid = new Sprite(MerSyd1Img,camera.x -250, height/2 + 100, "n");
-    coralMermaid.layer = 20;
+    coralMermaid2 = new Sprite(MerSyd1Img,camera.x -250, height/2 + 100, "n");
+    coralMermaid2.layer = 20;
   } 
 
-  if (!kelpMermaid)
+  if (!kelpMermaid2)
   {
-    kelpMermaid = new Sprite(MerCal2Img, camera.x + 450, (height/2) + 100, "n")
+    kelpMermaid2 = new Sprite(MerCal2Img, camera.x + 450, (height/2) + 100, "n")
   }
   
   

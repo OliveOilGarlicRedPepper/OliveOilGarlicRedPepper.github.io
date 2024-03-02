@@ -180,10 +180,11 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
 
 
   //CREATE GROUND
- ground = new Sprite(groundImg1, width / 3, 595, "s"); //"k = kinetic, s = static"
+if(!ground){
+  ground = new Sprite(groundImg1, width / 3, 595, "s"); //"k = kinetic, s = static"
   //new Sprite(x,y,w,h,collider)
   // new Sprite(image, x, y, collider) 
- 
+}
   ground.friction = 0;
   ground.x = camera.x;
   ceiling.x = camera.x; 

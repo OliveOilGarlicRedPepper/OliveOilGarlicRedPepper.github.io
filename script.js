@@ -2,7 +2,7 @@
 /* VARIABLES */
 let playButton, directionsButton, backButton, textTitle; //for homescreen
 let player, ground, theEnd, bullets, light; //for ALL
-let healthBar, enemyHealthBar, e1, eH1, e2, eh2, d1, healthFront, healthDMG; //for ALL
+let healthBar, enemyHealthBar, e1, eH1, e2, eh2, d1, d2, d3, d4, d5, d6, healthFront, healthDMG; //for ALL
 
 let goLvl1, goLvl2, goLvl3, goLvl4, goLvl5; 
 let vHealth = 100; 
@@ -12,9 +12,9 @@ let vCheck = false;
 
 let totHealth = 100;
 let maxHealth = 100;
-let enemies, kelps, platforms,lamps, rocks, invisibles, lanterns, corals, doors, deaths, oils, nets, debris, boundaries, angles, hiders; //ALL INTERACTIVE SPRITES 
+let enemies, kelps, platforms,lamps, rocks, invisibles, lanterns, corals, doors, deaths, oils, nets, debris, boundaries, angles, hiders, stores; //ALL INTERACTIVE SPRITES 
 
-let storeFront, storeBack, storeBack2, storeFront2, tester, kelpMermaid, coralMermaid, shipMermaid,whaleMermaid,volcanoMermaid, uno, dos, tres, uno1, dos2, tres3, cuatro, cinco, seis; 
+let storeFront, storeBack, storeBack2, storeBack3, storeBack4, storeBack5, storeBack6, storeFront2,storeFront3, storeFront4, storeFront5, storeFront6, tester, kelpMermaid, coralMermaid, shipMermaid,whaleMermaid,volcanoMermaid, uno, dos, tres, uno1, dos2, tres3, cuatro, cinco, seis,kelpMermaid2, coralMermaid2, shipMermaid2,whaleMermaid2; 
 let txt4, txt5; 
 
 let netCount1;
@@ -385,6 +385,9 @@ fishMoveAni.scale = 0.15;
   boundaries = new Group(); 
   boundaries.collider = "s"; 
   boundaries.layer = 78; 
+
+  stores = new Group(); 
+  stores.collider = "n";
   
   
   
@@ -680,6 +683,7 @@ function draw() {
       enemyHealthBar.removeAll();
         boundaries.removeAll();
         shopSND.stop(); 
+        ground.remove();
         
         ceiling.image = clearImg; 
       g1.remove(); 
@@ -1393,6 +1397,7 @@ function draw() {
           boundaries.removeAll();
           g1.remove(); 
           screen = 25; 
+          shopSND.stop(); 
            player.x = -1000;
             player.vel.x = 0;
             player.vel.y = 0; 
@@ -1413,6 +1418,14 @@ function draw() {
   {
       storeOpen();
       mermaid1a();
+    if(!storeBack2)  {
+       storeBack2 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeBack2.layer = 10;
+     }
+    if(!storeFront2)  {
+       storeFront2 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeFront2.layer = 10;
+     }
      
     
     if(kb.presses("n"))
@@ -1433,6 +1446,8 @@ function draw() {
       storeBack.y = -90000;
       storeFront.layer = -1;
       storeBack.layer = -1;
+      storeBack2.remove();
+      storeFront2.remove();
       corals.removeAll();
       textBubbles.removeAll();
       kelpMermaid.remove();
@@ -1739,7 +1754,15 @@ function draw() {
     
     if(screen == 250)// sydney 
     {
-      
+      background(storeBackImg);
+     if(!storeBack3)  {
+       storeBack3 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeBack3.layer = 10;
+     }
+      if(!storeFront3)  {
+         storeFront3 = new Sprite(storeBackImg, camera.x, height/2, "n");
+         storeFront3.layer = 10;
+       }
       mermaid2a(); 
       
       
@@ -1765,6 +1788,8 @@ function draw() {
           player.x = 20;
          storeFront.x = -9000000;
          storeBack.x = -900000;
+        storeBack3.remove();
+        storeFront3.remove();
         corals.removeAll();
         rocks.removeAll();
         textBubbles.removeAll();
@@ -2064,9 +2089,20 @@ function draw() {
   {
     storeOpen();
     mermaid3a(); 
+    if(!storeBack4)  {
+       storeBack4 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeBack4.layer = 10;
+     }
+    if(!storeFront4)  {
+       storeFront4 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeFront4.layer = 10;
+     }
+   
   
     storeFront.y = height/2;
     storeBack.y = height/2;
+    storeBack.x = camera.x;
+    storeFront.x = camera.x;
     storeFront.layer  = 30;
     storeBack.layer = 19;
     if(kb.presses("n"))
@@ -2089,6 +2125,8 @@ function draw() {
       storeBack.y = -90000;
       storeFront.layer = -1;
       storeBack.layer = -1;
+      storeBack4.remove(); 
+      storeFront4.remove();
       corals.removeAll();
       rocks.removeAll();
       textBubbles.removeAll();
@@ -2111,7 +2149,7 @@ function draw() {
    if(lvl3End) {lvl3End.y= -1000;}
 
 
-    if(totHealth == 0){
+    if(totHealth <= 0){
       screen = 104;
       enemies.remove(); 
     }
@@ -2122,7 +2160,7 @@ eMove = false;
         i2 = true;
         canMove = false;
         txt6 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-        txt6.text = "bzzt... A dead whale is falling\n all around you.\n Don't get hit by the whale bits!\n press ENTER to dash around them\n Press E to Continue.";
+        txt6.text = "bzzt... A dead whale is falling\n all around you.\n Don't get hit by the whale bits!\n Press ENTER to dash around them\n Press E to Continue.";
           txt6.textSize = 10;
         player.vel.x = 0; 
          player.vel.y = 0; 
@@ -2546,6 +2584,15 @@ if (screen == 778)
 {
   storeOpen();
   mermaid4a();
+  if(!storeBack5)  {
+     storeBack5 = new Sprite(storeBackImg, camera.x, height/2, "n");
+     storeBack5.layer = 10;
+   }
+  if(!storeFront5)  {
+     storeFront5 = new Sprite(storeBackImg, camera.x, height/2, "n");
+     storeFront5.layer = 10;
+   }
+
   
   storeFront.y = height/2;
   storeBack.y = height/2;
@@ -2571,6 +2618,8 @@ if (screen == 778)
       storeBack.layer = -1;
       corals.removeAll();
       rocks.removeAll();
+      storeBack5.remove();
+      storeFront5.remove();
       textBubbles.removeAll();
       whaleMermaid.remove();
       playLvl5();
@@ -3023,6 +3072,17 @@ if (screen == 778)
     if(volcanoFish.overlapping(f15)){
       f15.y = 0;
     }
+
+  if (player.overlapping(invis08))
+  {
+
+    txt8 = new textBubbles.Sprite(textBubbleImg, -6900, 200, "n");
+    txt8.text = "It's stuck!\nNow's your chance \nto fight it.";
+      txt8.textSize = 15;
+    player.vel.x = 0; 
+     player.vel.y = 0;
+    invis08.remove(); 
+  }
    
 
     
@@ -3043,6 +3103,14 @@ if (screen == 778)
   if(screen == 29){ // Abi mermaid/end screen?
    storeOpen();
     mermaid5a(); 
+    if(!storeBack6)  {
+       storeBack6 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeBack6.layer = 10;
+     }
+    if(!storeFront6)  {
+       storeFront6 = new Sprite(storeBackImg, camera.x, height/2, "n");
+       storeFront6.layer = 10;
+     }
     storeFront.y = height/2;
     storeBack.y = height/2;
     storeFront.layer  = 30;
@@ -3063,6 +3131,8 @@ if (screen == 778)
       player.vel.x = 0;
       storeFront.y = -9000;
       storeBack.y = -90000;
+      storeBack6.remove();
+      storeFront6.remove();
       storeFront.layer = -1;
       storeBack.layer = -1;
       corals.removeAll();
@@ -3088,7 +3158,7 @@ if (screen == 778)
     fill(255);
     textSize(40);
     textAlign(CENTER, TOP);
-    text("Our World Is Restored!\nThank you, Unit F15H!!", width / 2, height / 2 - 250);
+    text("Our World Is Restored To Its Natural Order!\nThank you, Brave One!!", width / 2, height / 2 - 250);
   }
 
   if(screen == 100){

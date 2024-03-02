@@ -307,6 +307,7 @@ function death2()
   player.vel.x = 0;
   player.vel.y = -1; 
     healthBar.x = -1500;
+  stores.remove(); 
   healthBar.w = 200;
    player.changeAni('die');
 }
@@ -369,16 +370,17 @@ function deathCard1(){
     d1 = new deaths.Sprite(clearImg);
     d1.x = camera.x; 
     d1.y = height/2; 
-    d1.text = "You died to a corrupted fish!\nPress E to try again!"; 
+    d1.text = "You died!\nPress E to try again!"; 
     d1.textSize = 15;
     d1.textColor = "white"; 
   }
+
   if(kb.presses('e')){
-    deaths.removeAll(); 
+    d1.x = 110000;
      enemies.removeAll();
     corals.removeAll(); 
     rocks.removeAll(); 
-    coralBack.remove(); 
+    //coralBack.remove(); 
     
   
     enemyHealthBar.removeAll(); 
@@ -387,20 +389,22 @@ function deathCard1(){
      
     tutorialScreenAssests();
     screen = 2; 
+  }else{
+    d1.x = camera.x; 
   }
 }
 function deathCard2(){
   background(backImg);
   death2();
   //play death animation 2 
-if(!d1){
-  d1 = new deaths.Sprite(clearImg);
-  d1.x = camera.x; 
-  d1.y = height/2; 
-  d1.text = "You died to a corrupted fish!\nPress E to try again!"; 
-  d1.textSize = 15;
-  d1.textColor = "white"; 
-  d1.layer = 200; 
+if(!d2){
+  d2 = new deaths.Sprite(clearImg);
+  d2.x = camera.x; 
+  d2.y = height/2; 
+  d2.text = "You died to a corrupted fish!\nPress E to try again!"; 
+  d2.textSize = 15;
+  d2.textColor = "white"; 
+  d2.layer = 200; 
 }
 
   if(kb.presses('e')){
@@ -427,13 +431,13 @@ function deathCard3(){
   background(backImg2);
   death3();
   //play death animation 2 
-if(!deaths){
-  d1 = new deaths.Sprite(clearImg);
-  d1.x = camera.x; 
-  d1.y = height/2; 
-  d1.text = "You died to ghost gear!\nPress E to try again!"; 
-  d1.textSize = 15;
-  d1.textColor = "white"; 
+if(!d3){
+  d3 = new deaths.Sprite(clearImg);
+  d3.x = camera.x; 
+  d3.y = height/2; 
+  d3.text = "You died to ghost gear!\nPress E to try again!"; 
+  d3.textSize = 15;
+  d3.textColor = "white"; 
 }
   if(kb.presses('e')){
     deaths.removeAll(); 
@@ -459,14 +463,14 @@ function deathCard4(){
   background(16,14,54);
   death4();
   //play death animation 2 
-if(!d1){
-  d1 = new deaths.Sprite(clearImg);
-  d1.x = camera.x; 
-  d1.y = height/2; 
-  d1.text = "You died to [????]!\nPress E to try again!"; 
-  d1.textSize = 15;
-  d1.textColor = "white"; 
-  d1.layer = 200;
+if(!d4){
+  d4 = new deaths.Sprite(clearImg);
+  d4.x = camera.x; 
+  d4.y = height/2; 
+  d4.text = "You died to [????]!\nPress E to try again!"; 
+  d4.textSize = 15;
+  d4.textColor = "white"; 
+  d4.layer = 200;
   
 }
   if(kb.presses('e')){
@@ -493,13 +497,13 @@ function deathCard5(){
   background(backImg4);
   death5();
   //play death animation 2 
-if(!d1){
-  d1 = new deaths.Sprite(clearImg);
-  d1.x = camera.x; 
-  d1.y = height/2; 
-  d1.text = "You died!\nPress E to try again!"; 
-  d1.textSize = 15;
-  d1.textColor = "white"; 
+if(!d5){
+  d5 = new deaths.Sprite(clearImg);
+  d5.x = camera.x; 
+  d5.y = height/2; 
+  d5.text = "You died!\nPress E to try again!"; 
+  d5.textSize = 15;
+  d5.textColor = "white"; 
 }
   if(kb.presses('e')){
     deaths.removeAll(); 
@@ -521,19 +525,21 @@ function deathCard6(){
   background(backImg5);
   death6();
   //play death animation 2 
-if(!d1){
-  d1 = new deaths.Sprite(clearImg);
-  d1.x = camera.x; 
-  d1.y = height/2; 
-  d1.text = "You died!\nPress E to try again!"; 
-  d1.textSize = 15;
-  d1.textColor = "white"; 
+if(!d6){
+  d6 = new deaths.Sprite(clearImg);
+  d6.x = camera.x; 
+  d6.y = height/2; 
+  d6.text = "You died!\nPress E to try again!"; 
+  d6.textSize = 15;
+  d6.textColor = "white"; 
 }
   if(kb.presses('e')){
     deaths.removeAll(); 
      enemies.removeAll();
     rocks.removeAll();
     oils.removeAll();
+    hiders.removeAll();
+    textBubbles.removeAll(); 
     volcanoFish.remove();
     boundaries.removeAll(); 
     enemyHealthBar.removeAll(); 
