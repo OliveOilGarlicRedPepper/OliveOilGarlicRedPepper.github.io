@@ -3,7 +3,7 @@
 
 ### ← script.js
 
-This is where we will add the JavaScript code for our game.
+Main Function 
 
 ### ← assets
 
@@ -15,7 +15,10 @@ The HTML file contains HTML code that sets up a webpage for our game. We also ad
 
 ### ← README.md
 
-That's this file. This is the place to tell people more about what your game does and how you built it. 
+Ideas:
+  -Add light mechanic; 
+  -Mazes
+  -
 
 ### ← style.css
 
