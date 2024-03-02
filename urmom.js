@@ -48,36 +48,41 @@ function directionsScreen() {
   directionsButton.pos = { x: -1500, y: -4100 };
   textTitle.pos = { x: -1500, y: -4100 };
 
+  fill(255);
+  textSize(30);
+  textAlign(CENTER, TOP);
+  text("Stuck on a level and want to skip ahead?\nOr maybe you really like a certain level and want to play again?\nClick on wherever you'd like to go!\n(We recommend you play the whole thing through first.)", width / 2, height / 2 - 200);
+
   //Directions (description of game)
-  goLvl1 = new Sprite(width / 2 - 150, height / 2 - 50, 100, 50, 'k');
+  goLvl1 = new Sprite(width / 2 - 350, height / 2 + 50, 300, 50, 'k');
   goLvl1.color = color(106, 113, 173);
   goLvl1.textColor = "white";
   goLvl1.textSize = 20;
-  goLvl1.text = "Skip to \nLevel 1";
+  goLvl1.text = "Skip to Level 1";
 
-  goLvl2 = new Sprite(width / 2 - 150, height / 2 + 50, 100, 50, 'k');
+  goLvl2 = new Sprite(width / 2 + 350, height / 2 + 50, 300, 50, 'k');
   goLvl2.color = color(106, 113, 173);
   goLvl2.textColor = "white";
   goLvl2.textSize = 20;
-  goLvl2.text = "Skip to \nLevel 2";
+  goLvl2.text = "Skip to Level 2";
 
-  goLvl3 = new Sprite(width / 2 + 150, height / 2 - 50, 100, 50, 'k');
+  goLvl3 = new Sprite(width / 2 - 350, height / 2 + 150, 300, 50, 'k');
   goLvl3.color = color(106, 113, 173);
   goLvl3.textColor = "white";
   goLvl3.textSize = 20;
-  goLvl3.text = "Skip to \nLevel 3";
+  goLvl3.text = "Skip to Level 3";
 
-  goLvl4 = new Sprite(width / 2 + 150, height / 2 + 50, 100, 50, 'k');
+  goLvl4 = new Sprite(width / 2, height / 2 + 150, 300, 50, 'k');
   goLvl4.color = color(106, 113, 173);
   goLvl4.textColor = "white";
   goLvl4.textSize = 20;
-  goLvl4.text = "Skip to \nLevel 4";
+  goLvl4.text = "Skip to Level 4";
 
-  goLvl5 = new Sprite(width / 2, height / 2 - 50, 100, 50, 'k');
+  goLvl5 = new Sprite(width / 2 + 350, height / 2 + 150, 300, 50, 'k');
   goLvl5.color = color(106, 113, 173);
   goLvl5.textColor = "white";
   goLvl5.textSize = 20;
-  goLvl5.text = "Skip to \nLevel 5";
+  goLvl5.text = "Skip to Level 5";
 
 
   //Back button

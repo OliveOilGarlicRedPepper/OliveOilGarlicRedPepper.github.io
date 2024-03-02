@@ -154,6 +154,10 @@ healthImg = loadImage('assets/HealthBack.png');
   SND1 = loadSound('assets/music/My Song 2.m4a');
   dramaticSND = loadSound('assets/music/Dramatic.m4a'); 
   windySND = loadSound('assets/music/windy.mp3'); 
+  lvl2SND = loadSound('assets/music/r1.mp3'); 
+  lvl3SND = loadSound('assets/music/r2.mp3');
+  deepSND = loadSound('assets/music/r4.mp3'); 
+  flutterSND = loadSound('assets/music/r3.mp3'); 
   
   //ANIMATIONS
   enemyMoveAni = loadAnimation(e1,e2,e3,e4);
@@ -298,7 +302,7 @@ fishMoveAni.scale = 0.15;
   enemies.addAni(enemyMoveAni);
   enemies.ani.scale = 0.2; 
 
-   musicToggle(); 
+  // musicToggle(); 
 
 
   enemyHealthBar = new Group();
@@ -411,12 +415,12 @@ function draw() {
     if(directionsButton.mouse.presses()){
       screen = 1; //TSA INFO 
       directionsScreen();
-       musicToggle(); 
+      
      
     } else if (playButton.mouse.presses()){
       screen = 2;
       tutorialScreenAssests();
-       musicToggle(); 
+     
       
     }
   }
@@ -426,7 +430,7 @@ function draw() {
 
     if(backButton.mouse.presses()){
       screen = 0;
-       musicToggle(); 
+    
       
 
       goLvl1.pos = {x: -500, y:-500};
@@ -514,10 +518,10 @@ function draw() {
     background(backImg);
     opening.stop(); 
     tutMusic(); 
-    player.debug = mouse.pressing();
+    //player.debug = mouse.pressing();
     player.mirror.x = true;
-    invisibles.debug = mouse.pressing();
-    enemies.debug= mouse.pressing(); 
+    //invisibles.debug = mouse.pressing();
+    //enemies.debug= mouse.pressing(); 
    /* ang1.x = player.x; ang1.y = player.y - 100;
     ang2.x = player.x; ang2.y = player.y + 100;
     ang3.x = player.x - 50; ang3.y = player.y + 100;
@@ -675,6 +679,7 @@ function draw() {
       textBubbles.removeAll();
       enemyHealthBar.removeAll();
         boundaries.removeAll();
+        shopSND.stop(); 
         
         ceiling.image = clearImg; 
       g1.remove(); 
@@ -698,12 +703,13 @@ function draw() {
     background(backImg);
     if(theEnd) {theEnd.y= -1000;}
     coralBack.x = player.x + 70; 
-    invisibles.debug = mouse.pressing();
-    player.debug = mouse.pressing();
+    //invisibles.debug = mouse.pressing();
+   // player.debug = mouse.pressing();
     playerSetUp();
     ceiling.x = player.x + 90; 
     lvl1Music(); 
-    shopSND.stop(); 
+    
+    SND1.stop(); 
     if (!txt4)
     {
      txt4 = new textBubbles.Sprite(textBubbleImg, 420, -200, "n");
@@ -749,7 +755,7 @@ function draw() {
           if(!txt5){
           txt5 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
           }
-          txt5.text = "bzzt... bzzt... \nDon't get caught in the oil! \n You don't know what's \nwaiting for you in there!\nShoot them all to light up the lamp \nPress E to continue";
+          txt5.text = "bzzt... bzzt... \nDon't get caught in the oil! \n You don't know what's \nwaiting for you in there!\n'Heal' all corrupted fish to progress. \nPress E to continue";
           txt5.textSize = 10;
         canMove = false;
         i2 = true; 
@@ -1385,7 +1391,6 @@ function draw() {
           enemyHealthBar.removeAll();
           rocks.removeAll();
           boundaries.removeAll();
-          shopSND.stop(); 
           g1.remove(); 
           screen = 25; 
            player.x = -1000;
@@ -1393,7 +1398,7 @@ function draw() {
             player.vel.y = 0; 
           player.y = 350;
           player.x = 20; 
-          shopSND.stop();
+          SND1.stop();
            //playLvl2();
        }
     }
@@ -1408,7 +1413,8 @@ function draw() {
   {
       storeOpen();
       mermaid1a();
-     musicToggle(); 
+     
+    
     if(kb.presses("n"))
     {
       screen = 251; 
@@ -1418,7 +1424,8 @@ function draw() {
   if (screen == 251)
   {
     mermaid1b();
-     musicToggle(); 
+    
+    
 
     if (kb.presses('e'))
     {
@@ -1439,9 +1446,10 @@ function draw() {
   { //lvl2: kelp forest // net enemy
     background(backImg2);
     playerSetUp();
-    shopSND.stop(); 
-     musicToggle(); 
+    SND1.stop(); 
+    
     opening.stop(); 
+    lvl2Music(); 
     if(lvl1End) {lvl1End.y= -1000;}
    
     if(totHealth == 0){
@@ -1450,7 +1458,7 @@ function draw() {
 
     }
 
-    nets.debug = mouse.pressing();
+  //  nets.debug = mouse.pressing();
 
     kelpBack1.x = player.x + 70;
     SND1.stop(); 
@@ -1460,7 +1468,7 @@ function draw() {
     {
       i2 = true; 
        txt3 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-      txt3.text = "Ugh, those stupid \ncommericial fishers.\nPress 'SHIFT' to hide behind \nthe kelp and rocks. \n Screw those guys. \n Press E to Continue";
+      txt3.text = "Ugh, ghost gear. \nThese nets seem to have\n a mind of their own. \nPress 'SHIFT' to hide behind \nthe kelp and rocks. \n Don't get tangled. \n Press E to Continue";
         txt3.textSize = 10;
          canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
        player.vel.x = 0; 
@@ -1720,6 +1728,7 @@ function draw() {
       kelpBack1.remove(); 
       boundaries.removeAll();
       g1.remove();
+      lvl2SND.stop();
       player.y = 350;
       player.x = 20; 
       screen = 250;
@@ -1732,7 +1741,8 @@ function draw() {
     {
       
       mermaid2a(); 
-       musicToggle(); 
+      
+      
       storeOpen();
       storeBack.layer = 19;
       storeFront.layer = 30;
@@ -1746,7 +1756,7 @@ function draw() {
     if( screen == 255)
     {
       mermaid2b();
-       musicToggle(); 
+      
       lvl2End.remove(); 
 
       if(kb.presses("e"))
@@ -1769,8 +1779,9 @@ function draw() {
   if (screen == 50){//lvl 3:sunken ship //plastic enemy
     background(16,14,54);
     playerSetUp();
-    shopSND.stop(); 
-     musicToggle(); 
+    SND1.stop(); 
+    
+    lvl3Music();
   
     if(lvl2End) {lvl2End.y= -1000;}
     
@@ -1778,17 +1789,19 @@ function draw() {
       screen = 103;
 
     }
+
+    
  
 
 
-    player.debug = mouse.pressing(); 
+    //player.debug = mouse.pressing(); 
  
     if (player.overlapping(invis5))
     {
       i2 = true;
       canMove = false;
       txt5 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-      txt5.text = "... Make sure to use your \nflashlight. This maze has \nsome fishy stuff \naround the corners.\nPress E to Continue";
+      txt5.text = "... Make sure to use your \nflashlight. Strange things \nhide in the dark. \nThey're attracted to light. \nPress E to Continue";
 
         txt5.textSize = 10;
       player.vel.x = 0; 
@@ -2039,6 +2052,7 @@ function draw() {
       light.y = -2000; 
       hiders.remove();
       entrance.remove();
+      lvl3SND.stop();
       player.y = 350;
       player.x = 20; 
       //playLvl4();
@@ -2050,7 +2064,7 @@ function draw() {
   {
     storeOpen();
     mermaid3a(); 
-     musicToggle(); 
+  
     storeFront.y = height/2;
     storeBack.y = height/2;
     storeFront.layer  = 30;
@@ -2065,7 +2079,7 @@ function draw() {
   if (screen == 420)
   {
     mermaid3b();
-     musicToggle(); 
+
     if (kb.presses('e'))
     {
       player.y = 350;
@@ -2089,9 +2103,11 @@ function draw() {
   if (screen == 60){ //lvl 4: whale fall // falling marine snow 
     background(backImg4);
     playerSetUp();
-    lvl4Music(); 
-     musicToggle(); 
-    shopSND.stop(); 
+    lvl4Music();
+    deepMusic(); 
+    
+   
+    SND1.stop(); 
    if(lvl3End) {lvl3End.y= -1000;}
 
 
@@ -2516,6 +2532,7 @@ eMove = false;
       rocks.removeAll();
       g1.remove(); 
       windySND.stop(); 
+      deepSND.stop(); 
       boundaries.removeAll();
 
       player.y = 350;
@@ -2529,7 +2546,7 @@ if (screen == 778)
 {
   storeOpen();
   mermaid4a();
-   musicToggle(); 
+  
   storeFront.y = height/2;
   storeBack.y = height/2;
   storeFront.layer  = 30;
@@ -2543,7 +2560,7 @@ if (screen == 778)
   if (screen == 777)
   {
     mermaid4b();
-     musicToggle(); 
+     
     if (kb.presses('e'))
     {
       player.y = 350;
@@ -2566,22 +2583,13 @@ if (screen == 778)
 
   if (screen == 70){ //lvl 5: underwater volcano 
     background(backImg5);
-    shopSND.stop(); 
+    SND1.stop(); 
     opening.stop(); 
-     musicToggle(); 
-    if (kb.presses('enter')) {
-       /* if(kb.pressing('w') || ( kb.pressing('s'))){
-          player.vel.y *= 10;
-        }
-        else */if( kb.pressing('a') || ( kb.pressing('d'))){
-        player.vel.x *= 10;
-        }
-       else{
-       player.vel.x += 76;
-        }
-    }
+
+  
 
     playerSetUp();
+    dash();
     if(totHealth == 0){
       screen = 105;
       enemies.remove(); 
@@ -2594,34 +2602,25 @@ if (screen == 778)
 
     if (player.overlapping(invis7))
       {
-        i2 = true;
-        canMove = false;
+    
         txt7 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-        txt7.text = "RUN AWAY. \n Press E to Continue";
-          txt7.textSize = 10;
+        txt7.text = "RUN.";
+          txt7.textSize = 30;
         player.vel.x = 0; 
          player.vel.y = 0;
        
         
         invis7.remove(); 
+        volcanoFish.vel.x = -3.5; 
+        stopper.remove(); 
+        lvl5Music(); 
       }
 
-      if((canMove == false) && i2 == true )
-        {
-        if(kb.presses("e"))
-        {
-          canMove = true;
-          i2 = false; 
-          textBubbles.remove(); 
-           volcanoFish.vel.x = -3.5; 
-          stopper.remove(); 
-          lvl5Music(); 
-        } 
-       else
-          canMove = false;
-        }
+  
 
-   
+   if(player.x<= 1500 && dramaticSND.isPlaying() == false){
+     dramaticSND.play(); 
+   }
 
   
     if (f1.y >= 500 || f1.overlapping(player)) 
@@ -2968,9 +2967,9 @@ if (screen == 778)
     if (player.overlapping(invis1))
     {
     
-      txt7 = new textBubbles.Sprite(textBubbleImg, -6000, 200, "n");
+      txt7 = new textBubbles.Sprite(textBubbleImg, -5990, 200, "n");
       txt7.text = "HIDE.";
-        txt7.textSize = 10;
+        txt7.textSize = 30;
       player.vel.x = 0; 
        player.vel.y = 0;
       invis1.remove(); 
@@ -3033,9 +3032,11 @@ if (screen == 778)
       platforms.remove(); 
       enemies.remove();
       lamps.remove();
+      dramaticSND.stop();
 
       player.y = 350;
       player.x = 20; 
+      camera.x=9000; 
       screen = 29;
      }
    }
@@ -3058,8 +3059,8 @@ if (screen == 778)
     mermaid5b();
     if (kb.presses('e'))
     {
-      player.y = 350;
-      player.x = 20;
+      player.vel.y = 0;
+      player.vel.x = 0;
       storeFront.y = -9000;
       storeBack.y = -90000;
       storeFront.layer = -1;
@@ -3067,24 +3068,27 @@ if (screen == 778)
       corals.removeAll();
       rocks.removeAll();
       textBubbles.removeAll();
-      volcanoMermaid.remove();
+      SND1.stop();
+      
       screen =80;
     }
   }
   if(screen == 80)
   { //END SCREEN
-    background(132, 141, 217);
+    background(titleBackImg);
     player.remove(); 
     enemies.removeAll();
     platforms.removeAll();
     boundaries.removeAll();
     light.remove(); 
-    camera.x = 0; 
+    camera.x = 9000; 
+    theEND();
+    music1();
     
     fill(255);
     textSize(40);
     textAlign(CENTER, TOP);
-    text("thank for playing", width / 2, height / 2 - 150);
+    text("Our World Is Restored!\nThank you, Unit F15H!!", width / 2, height / 2 - 250);
   }
 
   if(screen == 100){

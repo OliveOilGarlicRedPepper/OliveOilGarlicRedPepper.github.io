@@ -410,6 +410,7 @@ if(!d1){
     enemyHealthBar.removeAll(); 
     rocks.removeAll(); 
     oils.removeAll(); 
+    coralBack.remove(); 
     
     invisibles.removeAll(); 
    
@@ -559,13 +560,22 @@ function musicToggle(){
         opening2.setVolume(1); 
          SND1.setVolume(1);
         opening.setVolume(1); 
+         lvl2SND.setVolume(1);
+        lvl3SND.setVolume(1);
+        deepSND.setVolume(1);
+        flutterSND.setVolume(1);
       } else {
         windySND.setVolume(0); 
          dramaticSND.setVolume(0);
          shopSND.setVolume(0);
         opening2.setVolume(0); 
          SND1.setVolume(0);
-        opening.setVolume(0); 
+        opening.setVolume(0);
+         lvl2SND.setVolume(0);
+        lvl3SND.setVolume(0);
+        deepSND.setVolume(0);
+        flutterSND.setVolume(0); 
+
       }
     
   }

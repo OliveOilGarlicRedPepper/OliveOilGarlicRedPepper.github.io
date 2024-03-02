@@ -1225,6 +1225,7 @@ txt33.text = "Ugh, I  was having such a hard \ntime getting past those stupid ne
 
   storeBack.x = camera.x;
 storeFront.x = camera.x;
+  
 
   storeBack.layer = 10;
   storeFront.layer = 30;
@@ -1318,13 +1319,15 @@ function mermaid4a() // Hasset
   storeFront.y = height/2;
   storeBack.layer = 10;
   storeFront.layer = 30;
+  storeBack.x = camera.x;
+  storeFront.x = camera.x;
 if(!whaleMermaid)
   {
     whaleMermaid = new Sprite(MerHgtv1Img,camera.x, height/2 +50, "n");
    whaleMermaid.layer = 20;
   } 
 txt777 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
-  txt777.text ="Oh I see you made it through \n the graveyard. Good work Fi5H, \nbut...here comes the hard part. \nPress N to continue.";
+  txt777.text ="Oh I see you made it through \n the graveyard. Good work F15H, \nbut...here comes the hard part. \nPress N to continue.";
   txt777.textSize = 10;
   txt777.layer = 35;
  ground.image = clearImg;
@@ -1365,6 +1368,7 @@ function mermaid5a() // Abi
   storeFront.layer = 30;
   storeBack.x = camera.x;
   storeFront.x = camera.x;
+  
 
   
   if(!volcanoMermaid)
@@ -1461,6 +1465,18 @@ async function lvl1Music(){
   
 }
 
+async function lvl2Music(){
+  if(!lvl2SND.isPlaying()){
+    lvl2SND.play(); 
+  }
+}
+
+async function lvl3Music(){
+  if(!lvl3SND.isPlaying()){
+    lvl3SND.play();
+  }
+}
+
 async function lvl4Music(){
   if(!windySND.isPlaying()){
     windySND.play();
@@ -1472,5 +1488,49 @@ async function lvl5Music(){
   if(!dramaticSND.isPlaying()){
     dramaticSND.play(); 
   }
+  
+}
+
+async function flutterMusic(){
+    if(!flutterSND.isPlaying()){
+      flutterSND.play();
+    }
+}
+async function deepMusic(){
+    if(!deepSND.isPlaying()){
+      deepSND.play();
+    }
+}
+
+function theEND(){
+  if(!volcanoMermaid)
+   {
+    volcanoMermaid = new Sprite(MerAbi2Img, camera.x, height/2 +100, "n");
+    volcanoMermaid.layer = 20;
+   } 
+  volcanoMermaid.y = height/2 + 100;
+
+  if(!whaleMermaid)
+   {
+    whaleMermaid = new Sprite(MerHgtv2Img,camera.x - +450, height/2 + 70, "n");
+    whaleMermaid.layer = 20;
+   } 
+
+  if(!shipMermaid)
+   {
+     shipMermaid = new Sprite(MerNat2Img,camera.x + 250, height/2 +100, "n");
+    shipMermaid.layer = 20;
+   } 
+  if(!coralMermaid)
+  {
+    coralMermaid = new Sprite(MerSyd1Img,camera.x -250, height/2 + 100, "n");
+    coralMermaid.layer = 20;
+  } 
+
+  if (!kelpMermaid)
+  {
+    kelpMermaid = new Sprite(MerCal2Img, camera.x + 450, (height/2) + 100, "n")
+  }
+  
   
 }
