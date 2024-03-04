@@ -3,24 +3,18 @@
 
 ### ← script.js
 
-Main Function 
+Main driver file; draw() function constantly draws the game on screen (client). 
 
 ### ← assets
 
-Drag in assets, like images, to add them to your project. If you are adding an image, it is best to save it to your computer, then upload the file to the `assets` folder. The url of the image will be `assets/example.jpg` or `assets/example.png`.
+Images and sound files. We have a lot, so the load time for the game is around 30-40 seconds. 
 
 ### ← index.html
 
-The HTML file contains HTML code that sets up a webpage for our game. We also add libraries in this file using HTML tags.
+The HTML file contains HTML code that sets up a webpage for our game. We also added the p5play library in this file using HTML tags.
 
 ### ← README.md
-
-Ideas:
-  -Add light mechanic; 
-  -Mazes
-  -
+Welcome to Machinations & Mermaids!
 
 ### ← style.css
-
-The CSS file adds styling rules to your content like changing colors and fonts. We will not use this file for our game and instead update the style of our game in the script.js file.  
-
+Load in fonts. 
