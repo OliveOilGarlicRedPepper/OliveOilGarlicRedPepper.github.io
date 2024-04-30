@@ -1461,11 +1461,13 @@ function mermaid1a()// CAL
   storeBack2 = new stores.Sprite(storeBackImg, camera.x, -1000, "n");
    storeBack2.layer = 10;
   }
+  storeBack2.y = height/2 
 if(!storeFront2){
   storeFront2 = new stores.Sprite(storeFrontImg, camera.x,-1000, "n");
    storeFront2.layer = 30;
     storeFront2.text = " ";
 }
+  storeFront2.y = height/2; 
   
  // storeBack2.y = height/2;
 //  storeFront2.y = height/2;
@@ -1486,9 +1488,10 @@ if(!storeFront2){
   storeFront.layer = 30;
   */
  if(!kelpMermaid){
-    kelpMermaid = new textBubbles.Sprite(MerCal1Img, camera.x, -2000, "n");
+    kelpMermaid = new Sprite(MerCal1Img, camera.x, -2000, "n");
     kelpMermaid.layer = storeBack2.layer + 1;
  } 
+  kelpMermaid.y = height/2 + 50; 
  
   
  if(!nextText){
@@ -1514,14 +1517,15 @@ function mermaid1b()// cal2
  
 
 
-   if(!kelpMermaid){
-      kelpMermaid = new textBubbles.Sprite(MerCal2Img, camera.x, -2000, "n");
-      kelpMermaid.layer = storeBack2.layer + 1;
+   if(!kelpMermaid1){
+      kelpMermaid1 = new Sprite(MerCal2Img, camera.x, -2000, "n");
+      kelpMermaid1.layer = storeBack2.layer + 1;
    } else{
 
      kelpMermaid.image = MerCal2Img; 
      
    }
+  kelpMermaid1.y = height/2 + 40; 
 
   if(!nextText1){
      nextText1 = new Sprite(camera.x+280,450,150,25,"s");
@@ -1550,18 +1554,22 @@ function mermaid2a() // sydeny
      storeBack3 = new stores.Sprite(storeBackImg, camera.x, height/2, "n");
      storeBack3.layer = 10;
    }
+  storeBack3.y = height/2;
 
 
   if(!storeFront3)  {
-     storeFront3 = new stores.Sprite(storeBackImg, camera.x, height/2, "n");
-     storeFront3.layer = 10;
+     storeFront3 = new stores.Sprite(storeFrontImg, camera.x, height/2, "n");
+     storeFront3.layer = 30;
    }
+  storeFront3.y = height/2;
 
   if(!coralMermaid){
     coralMermaid = new stores.Sprite(MerSyd1Img, camera.x, height/2 + 50, "n");
     coralMermaid.layer = 200;
     coralMermaid.layer = storeBack3.layer + 1;
   }
+  coralMermaid.y = height/2 + 50;
+
   
   if(!nextText2)
    {
@@ -1593,13 +1601,13 @@ function mermaid2b() // sydeny2
 
 
   if(!coralMermaid){
-       coralMermaid = new stores.Sprite(MerSyd2Img, camera.x,  height/2 + 50, "n");
+       coralMermaid = new Sprite(MerSyd2Img, camera.x,  height/2 + 50, "n");
    //  coralMermaid.layer = storeBack2.layer + 1;
   } else{
 
       coralMermaid.image = MerSyd2Img; 
   }
-  
+  coralMermaid.y = height/2 + 50;
   
 
     if(!nextText3)
@@ -1612,7 +1620,7 @@ function mermaid2b() // sydeny2
         textFont('Courier New');
        
      }
-  nextText3. y = 450; 
+  nextText3.y = 450; 
   
     txt22 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
     txt22.text = "A robot. They sent a\nrobot. To save the ocean.\nHm...hm. Okay. I can\nwork with this. I have a\n spare flashlight with\nfull charge. You'll need\n it. Bye. Don't die.";
@@ -1634,6 +1642,8 @@ function mermaid3a() // Natalia
      storeFront4 = new stores.Sprite(storeFrontImg, camera.x, height/2, "n");
      storeFront4.layer = 2000;
    }
+  storeFront4.y = height/2;
+  storeBack4.y = height/2; 
   /*
   if(!storeBack)
     {
@@ -1652,7 +1662,7 @@ function mermaid3a() // Natalia
   */
   if(!shipMermaid)
   {
-    shipMermaid = new textBubbles.Sprite(MerNat1Img,camera.x, height/2 +50, "n");
+    shipMermaid = new Sprite(MerNat1Img,camera.x, height/2 +50, "n");
    shipMermaid.layer = 20;
   } 
   shipMermaid.layer = 20;
@@ -1686,11 +1696,13 @@ function mermaid3b()
    
    if(!shipMermaid)
      {
-       shipMermaid = new textBubbles.Sprite(MerNat2Img,camera.x, height/2 +50, "n");
+       shipMermaid = new Sprite(MerNat2Img,camera.x, height/2 +50, "n");
       shipMermaid.layer = 20;
      } else{
      shipMermaid.image = MerNat2Img;
      }
+
+  shipMermaid.y = height/2 + 50;
   if(!nextText5)
    {
      nextText5 = new Sprite(camera.x+280,450,150,25,"s");
@@ -1724,6 +1736,7 @@ function mermaid4a() // Hasset
   }
   storeFront5.x = camera.x;
   storeFront5.y = height/2;
+   storeBack5.y = height/2;
   storeBack5.layer = 10;
   storeFront5.layer = 30;
   storeBack5.x = camera.x;
@@ -1731,9 +1744,10 @@ function mermaid4a() // Hasset
   
 if(!whaleMermaid)
   {
-    whaleMermaid = new textBubbles.Sprite(MerHgtv1Img,camera.x, height/2 +50, "n");
+    whaleMermaid = new Sprite(MerHgtv1Img,camera.x, height/2 +50, "n");
    whaleMermaid.layer = 20;
   } 
+  whaleMermaid.y = height/2 + 50;
   if(!nextText6)
    {
      nextText6 = new Sprite(camera.x+280,450,150,25,"s");
@@ -1756,11 +1770,13 @@ function mermaid4b()
   
   if(!whaleMermaid)
      {
-      whaleMermaid = new textBubbles.Sprite(MerHgtv2Img,camera.x, height/2 +50, "n");
+      whaleMermaid = new Sprite(MerHgtv2Img,camera.x, height/2 +50, "n");
       whaleMermaid.layer = 20;
      } else{
      whaleMermaid.image = MerHgtv2Img;
      }
+
+   whaleMermaid.y = height/2 + 50;
   if(!nextText7)
    {
      nextText7 = new Sprite(camera.x+280,450,150,25,"s");
@@ -1771,6 +1787,7 @@ function mermaid4b()
       textFont('Courier New');
      
    }
+  nextText7.y = 450; 
        txt778 = new textBubbles.Sprite(textBubbleImg, camera.x + 200, 300, "n")
        txt778.text ="You're so close, Rish.\nBut where you're going,\nI can't help you. But I\nsee you've gotten some\nupgrades. I'm sure those\nwill help. Probably.";
        txt778.textSize = 15;
@@ -1787,23 +1804,24 @@ function mermaid5a() // Abi
    }
 
   if(!storeFront6)  {
-     storeFront6 = new stores.Sprite(storeBackImg, camera.x, height/2, "n");
+     storeFront6 = new stores.Sprite(storeFrontImg, camera.x, height/2, "n");
      storeFront6.layer = 10;
    }
   storeFront6.x = camera.x;
   storeFront6.y = height/2;
   storeBack6.layer = 10;
   storeFront6.layer = 30;
-  storeBack6.x = camera.x;
+  storeBack6.y = height/2;
   storeFront6.x = camera.x;
   
 
   
   if(!volcanoMermaid)
     {
-      volcanoMermaid = new textBubbles.Sprite(MerAbi1Img,camera.x, height/2 +50, "n");
+      volcanoMermaid = new Sprite(MerAbi1Img,camera.x, height/2 +50, "n");
      volcanoMermaid.layer = 20;
     } 
+  volcanoMermaid.y = height/2 + 50;
   
   if (!nextText9)
   {
@@ -1826,11 +1844,13 @@ function mermaid5b()
   
   if(!volcanoMermaid)
      {
-      volcanoMermaid = new textBubbles.Sprite(MerAbi2Img,camera.x, height/2 +50, "n");
+      volcanoMermaid = new Sprite(MerAbi2Img,camera.x, height/2 + 130, "n");
       volcanoMermaid.layer = 20;
      } else{
      volcanoMermaid.image = MerAbi2Img;
      }
+  volcanoMermaid.y = height/2 + 100;
+
   if(!nextText10)
    {
      nextText10 = new Sprite(camera.x+280,450,150,25,"s");
@@ -1979,12 +1999,13 @@ async function radioStatic(){
 }
 
 function theEND(){
-  if(!volcanoMermaid)
+  if(!volcanoMermaid3)
    {
-    volcanoMermaid = new Sprite(MerAbi2Img, camera.x, height/2 +100, "n");
-    volcanoMermaid.layer = 20;
+    volcanoMermaid3 = new Sprite(MerAbi2Img, camera.x, height/2 +130 , "n");
+    volcanoMermaid3.layer = 20;
    } 
-  volcanoMermaid.y = height/2 + 100;
+  volcanoMermaid3.y = height/2 + 130;
+  volcanoMermaid3.x = camera.x;
 
   if(!whaleMermaid2)
    {

@@ -198,7 +198,7 @@ function pmenu(){
            opening21.setVolume(1);
           }else if(sC5 ==true && sC6 == false){
             dramaticSND.setVolume(1);
-          }else if (sC6 == true && sc5 == false){
+          }else if (sC6 == true && sC5 == false){
             dramatic2SND.setVolume(1); 
           }
            SND1.setVolume(1);
@@ -404,12 +404,23 @@ function pmenu(){
         g1.y = -1000; 
         menuCheck++; 
         ground.image = clearImg;
-        dramaticSND.stop();
-        dramatic2SND.stop();
-        opening21SND.stop(); 
-        dramaticSND.setVolume(0);
-        dramatic2SND.setVolume(0);  
-        opening21SND.setVolume(0);  
+        
+        
+        if(opening21.isPlaying()){
+        opening21.stop(); 
+          opening21.setVolume(0); 
+        }
+        if(dramaticSND.isPlaying()){
+          dramaticSND.stop();
+           dramaticSND.setVolume(0);
+        }
+        if(dramatic2SND.isPlaying()){
+          dramatic2SND.stop();
+           dramatic2SND.setVolume(0);
+        }
+
+      
+       
          homeScreen();
       }
     }

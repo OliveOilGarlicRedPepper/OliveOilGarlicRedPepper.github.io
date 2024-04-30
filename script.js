@@ -35,7 +35,7 @@ let totHealth = 100;
 let maxHealth = 100;
 let enemies, kelps, platforms,lamps, rocks, invisibles, lanterns, corals, doors, deaths, oils, nets, debris, boundaries, angles, hiders, stores; //ALL INTERACTIVE SPRITES 
 
-let storeFront, storeBack, storeBack2, storeBack3, storeBack4, storeBack5, storeBack6, storeFront2,storeFront3, storeFront4, storeFront5, storeFront6, tester, kelpMermaid, coralMermaid, shipMermaid,whaleMermaid,volcanoMermaid, uno, dos, tres, uno1, dos2, tres3, cuatro, cinco, seis,kelpMermaid2, coralMermaid2, shipMermaid2,whaleMermaid2; 
+let storeFront, storeBack, storeBack2, storeBack3, storeBack4, storeBack5, storeBack6, storeFront2,storeFront3, storeFront4, storeFront5, storeFront6, tester, kelpMermaid, coralMermaid, shipMermaid,whaleMermaid,volcanoMermaid, uno, dos, tres, uno1, dos2, tres3, cuatro, cinco, seis,kelpMermaid2, coralMermaid2, shipMermaid2,whaleMermaid2,volcanoMermaid3,kelpMermaid1, coralMermaid1, shipMermaid1,whaleMermaid1,volcanoMermaid1; 
 let txt3, txt4, txt5, txt6, txt7, txt8; 
 let nextText, nextText1, nextText2, nextText3, nextText4, nextText5, nextText6, nextText7, nextText8, nextText9, nextText10, nextText11, nextText12, nextText13, nxtxt1, nxtxt2, nxtxt3, nxtxt4, nxtxt5, nxtxt6, nxtxt7;
 
@@ -1741,7 +1741,7 @@ function draw() {
       mermaid1a();
     storeBack2.y = height/2;
     storeFront2.y = height/2;
-     kelpMermaid.y = (height/2)+40;
+   kelpMermaid.y = (height/2)+40;
     if(nextText.mouse.presses())
     {
    //    kelpMermaid1.image = MerCal2Img;
@@ -1749,7 +1749,7 @@ function draw() {
         kelpMermaid.image = MerCal2Img;
       }
       screen = 251;
-      
+       kelpMermaid.y = -1000;
   
      nextText.y = -1000;
      // background() = red;
@@ -1760,7 +1760,7 @@ function draw() {
   if (screen == 251)
   {
     mermaid1b();
-    kelpMermaid.y = (height/2)+40;
+    kelpMermaid1.y = (height/2)+40;
     
 
     if(nextText1.mouse.presses())
@@ -1769,15 +1769,16 @@ function draw() {
      // storeBack.y = -90000;
      // storeFront.layer = -1;
      // storeBack.layer = -1;
-    //  storeBack2.y = -9000;
-   //   storeFront2.y = -90000;
+     storeBack2.y = -1000;
+   storeFront2.y = -1000;
     //  storeBack21.remove();
     //  storeFront21.remove(); 
       corals.removeAll();
+      kelpMermaid1.y = -1000;
       textBubbles.removeAll();
       //kelpMermaid1.remove();
       rocks.removeAll();
-      stores.removeAll(); 
+     // stores.removeAll(); 
       nextText1.y = -1000;
       playLvl2();
       screen = 40;
@@ -2252,14 +2253,14 @@ if(canHurt == true){
     
     if(screen == 250)// sydney 
     {
-      background(storeBackImg);
-  
+     // background(storeBackImg);
+       storeOpen();
    mermaid2a(); 
       storeBack3.y = height/2;
       storeFront3.y = height/2;
     //   coralMermaid.y = (height/2)+40;
       
-      storeOpen();
+     
     /*  
       storeBack.layer = coralMermaid.layer -1;
       storeFront.layer = coralMermaid.layer +1;
@@ -2308,13 +2309,13 @@ if(canHurt == true){
           player.x = 20;
       //   storeFront.y = -9000000;
       //   storeBack.y = -900000;
-     //  storeBack3.y = -90000;
-      //  storeFront3.y = -90000;
-        stores.removeAll();
+      storeBack3.y = -1000;
+       storeFront3.y = -1000;
+      //  stores.removeAll();
         corals.removeAll();
         rocks.removeAll();
         textBubbles.removeAll();
-         coralMermaid.remove();
+        coralMermaid.y = -1000;
         nextText3.y = -2000;
           playLvl3();
         screen = 50;
@@ -2862,13 +2863,6 @@ if(canHurt == true){
     storeBack4.y = height/2;
     shipMermaid.y = height/2 + 50;
     
-   
-    
-  
-    
-  
-    
-    
 
    
   
@@ -2886,6 +2880,8 @@ if(canHurt == true){
     
     if(nextText4.mouse.presses())
     {
+   
+     // nexts.removeAll(); 
       screen = 420; 
       nextText4.y = -2000;
     
@@ -2901,8 +2897,7 @@ if(canHurt == true){
 
     if (nextText5.mouse.presses())
     {
-      
-      
+     
       
      // storeFront.y = -9000;
      // storeBack.y = -90000;
@@ -2910,17 +2905,18 @@ if(canHurt == true){
       //storeBack.layer = -1;
       player.y = 350;
       player.x = 20;
+      shipMermaid.y = -1000; 
     // storeBack4.y = -90000; 
     // storeFront4.y = -90000;
      // storeFront4.x = -9000;
      // storeBack4.x = -9000;
-      stores.removeAll();
+    //  stores.removeAll();
       corals.removeAll();
       rocks.removeAll();
-      storeBack4.remove();
-      storeFront4.remove();
+      storeBack4.y = -1000;
+      storeFront4.y= -1000;
       textBubbles.removeAll();
-      shipMermaid.remove();
+   //   shipMermaid.remove();
       nextText5.y= -2000;
       playLvl4(); 
    //   playLvl4();
@@ -3472,9 +3468,6 @@ if (screen == 778)
 {
   storeOpen();
   mermaid4a();
-  
-  
-   
    
  // storeBack5.y = height/2;
 //  storeFront5.y = height/2;
@@ -3487,13 +3480,14 @@ if (screen == 778)
   {
     storeFront5.layer = whaleMermaid.layer +20;
   }
-  /*if (storeBack.layer > whaleMermaid.layer)
+  if (storeBack5.layer > whaleMermaid.layer)
   {
-    storeBack.layer = whaleMermaid.layer -1;
+    storeBack5.layer = whaleMermaid.layer -1;
   }
-  */
+  
   if (nextText6.mouse.presses())
   {
+    whaleMermaid.y = -2000; 
     screen = 777;
     nextText6.y = -4500;
   }
@@ -3507,18 +3501,19 @@ if (screen == 778)
     {
       player.y = 350;
       player.x = 20;
-      stores.removeAll(); 
+      whaleMermaid.y = -2000; 
+     // stores.removeAll(); 
    //   storeFront.y = -9000;
    //   storeBack.y = -90000;
     //  storeFront.layer = -1;
    //   storeBack.layer = -1;
       corals.removeAll();
       rocks.removeAll();
-      storeBack5.y = -90000;
-      storeFront5.y = -90000;
+     storeBack5.y = -1000;
+    storeFront5.y = -1000;
       textBubbles.removeAll();
-      whaleMermaid.remove();
-      nextText7.remove();
+   //   whaleMermaid.remove();
+      nextText7.y = -2000;
       playLvl5();
       screen =70;
     }
@@ -4142,11 +4137,11 @@ if (screen == 778)
     {
       player.vel.y = 0;
       player.vel.x = 0;
-      stores.removeAll(); 
+     // stores.removeAll(); 
 //      storeFront.y = -9000;
     //  storeBack.y = -90000;
-     // storeBack6.y = -90000;
-     // storeFront6.y = -90000;
+     storeBack6.y = -1000;
+      storeFront6.y = -1000;
     //  storeFront.layer = -1;
     //  storeBack.layer = -1;
       corals.removeAll();
