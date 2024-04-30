@@ -188,7 +188,7 @@ function pmenu(){
            dramaticSND.setVolume(1);
            shopSND.setVolume(1);
            if(sC1 == false){
-             radioSND.setVolume(1); 
+           //  radioSND.setVolume(1); 
           opening2.setVolume(1); 
            } else{
              opening3.setVolume(1); 
@@ -213,7 +213,7 @@ function pmenu(){
           windySND.setVolume(0); 
            dramaticSND.setVolume(0);
            shopSND.setVolume(0);
-            radioSND.setVolume(0); 
+          //  radioSND.setVolume(0); 
           opening2.setVolume(0);
           opening21.setVolume(0);
           radioSND.setVolume(0);

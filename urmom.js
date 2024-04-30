@@ -8,14 +8,14 @@ function lore1(){
   }
 
   if(!nxtxt1){
-    nxtxt1 = new Sprite(camera.x+550, slide1.y,150,25,"s");
+    nxtxt1 = new Sprite(camera.x-400, height/2 +250,150,50,"s");
     nxtxt1.color = color(27, 95, 122);
     nxtxt1.textColor = "white";
-    nxtxt1.textSize = 15;
+    nxtxt1.textSize = 30;
     nxtxt1.text = "NEXT";
     textFont('Courier New');
   }
-  nxtxt1.x = slide1.x; 
+//  nxtxt1.x = slide1.x; 
 }
 
 function lore2(){
@@ -23,14 +23,14 @@ function lore2(){
     slide2 = new Sprite(sl2, width/2, height/2, "n");
   }
   if(!nxtxt2){
-    nxtxt2 = new Sprite(camera.x+550, slide2.y,150,25,"s");
+    nxtxt2 = new Sprite(camera.x-400, height/2+250,150,50,"s");
     nxtxt2.color = color(27, 95, 122);
     nxtxt2.textColor = "white";
-    nxtxt2.textSize = 15;
+    nxtxt2.textSize = 30;
     nxtxt2.text = "NEXT";
     textFont('Courier New');
   }
-  nxtxt2.x = slide2.x; 
+ // nxtxt2.x = slide2.x; 
 
 }
 
@@ -39,14 +39,14 @@ function lore3(){
     slide3 = new Sprite(sl3, width/2, height/2, "n");
   }
   if(!nxtxt3){
-   nxtxt3 = new Sprite(camera.x+550, slide3.y,150,25,"s");
+   nxtxt3 = new Sprite(camera.x-400, height/2+250,150,50,"s");
     nxtxt3.color = color(27, 95, 122);
     nxtxt3.textColor = "white";
-    nxtxt3.textSize = 15;
+    nxtxt3.textSize = 30;
     nxtxt3.text = "NEXT";
     textFont('Courier New');
   }
-  nxtxt3.x = slide3.x; 
+ // nxtxt3.x = slide3.x; 
 
 }
 function homeScreen() {

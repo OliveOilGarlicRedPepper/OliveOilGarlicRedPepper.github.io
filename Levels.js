@@ -81,7 +81,9 @@ screen = 30;
 
 
   lvl1End.y = 300; 
-  g1.y = lvl1End.y;   
+  g1.y = lvl1End.y;
+  g1.image = clearImg; 
+
   boundary = new boundaries.Sprite(rockBoundary, -300, 300, "s")
   boundary1 = new boundaries.Sprite(rockBoundary, -600, 300, "s")
   boundary1.mirror.x = true;
@@ -447,6 +449,9 @@ function playLvl2(){ //KELP
 
   lvl2End.y = 300; 
   g1.y = lvl2End.y;
+
+  g1.image = glow2Img; 
+
   boundary = new  boundaries.Sprite(rockBoundary, -300, 300, "s")
   boundary1 = new  boundaries.Sprite(rockBoundary, -600, 300, "s")
   boundary1.mirror.x = true;
@@ -704,6 +709,8 @@ function playLvl3(){ //SUNKEN SHIP
 
   lvl3End.y = 300; 
   g1.y = lvl3End.y;
+  g1.image = glow2Img; 
+
   boundary = new  boundaries.Sprite(rockBoundary, -300, 300, "s");
   boundary1 = new  boundaries.Sprite(rockBoundary, -600, 300, "s");
   boundary1.mirror.x = true;
@@ -862,7 +869,8 @@ function playLvl4(){ //WHALE FALL
   }
   lvl4End.y = 250; 
    g1.y = lvl4End.y;    
-  
+  g1.image = glow2Img; 
+
   boundary = new  boundaries.Sprite(rockBoundary, -300, 300, "s")
   boundary1 = new  boundaries.Sprite(rockBoundary, -600, 300, "s")
   boundary1.mirror.x = true;
@@ -1022,13 +1030,13 @@ function playLvl5(){ //UNDERWATER VOLCANO
   healthFront.y = 20;
   healthBar.y = 20; 
   if(musicCheck % 2 == 0){
-    if(sC5 == false && sC6 == false){
+    
      opening21.setVolume(1);
-    }else if(sC5 ==true && sC6 == false){
+   
       dramaticSND.setVolume(1);
-    }else if (sC6 == true && sc5 == false){
+  
       dramatic2SND.setVolume(1); 
-    }
+ 
 
   }
   totHealth = 100;
@@ -1076,6 +1084,7 @@ ground.image = groundImg5;
   }
   lvl5End.y = 300;
   g1.y = lvl5End.y; 
+  g1.image = glow2Img; 
 
  radio6 = new lamps.Sprite(lampImg, 2300, 328);
   invis6 = new invisibles.Sprite(clearImg, 2300, 200);
@@ -1849,7 +1858,7 @@ function mermaid5b()
      } else{
      volcanoMermaid.image = MerAbi2Img;
      }
-  volcanoMermaid.y = height/2 + 100;
+  volcanoMermaid.y = height/2 + 70;
 
   if(!nextText10)
    {
@@ -1999,7 +2008,18 @@ async function radioStatic(){
 }
 
 function theEND(){
-  if(!volcanoMermaid3)
+
+  if(!restart){
+    restart = new Sprite(camera.x, height/2, 150, 25, "k"); 
+    restart.color = color(27, 95, 122);
+    restart.textColor = "white";
+    restart.textSize = 15;
+    restart.text = "RESTART?";
+    textFont('Courier New');
+  }
+
+  endo = new Sprite(endslide, camera.x, height/2, "n"); 
+ /* if(!volcanoMermaid3)
    {
     volcanoMermaid3 = new Sprite(MerAbi2Img, camera.x, height/2 +130 , "n");
     volcanoMermaid3.layer = 20;
@@ -2028,6 +2048,7 @@ function theEND(){
   {
     kelpMermaid2 = new Sprite(MerCal2Img, camera.x + 450, (height/2) + 100, "n")
   }
+  */
 //////////////////////////////////////////////////////////////
 
 

@@ -6,6 +6,8 @@ let healthBar, enemyHealthBar, e1, eH1, e2, eh2, d1, d2, d3, d4, d5, d6,d21, hea
 
 let yomama;
 
+
+let restart; 
 let sC1, sC2, sC3, sC4, sC5, sC6, sC7 = false; 
 
 let fade; 
@@ -110,6 +112,7 @@ healthImg = loadImage('assets/HealthBack.png');
   sl1 = loadImage('assets/Slideshow1.png');
   sl2 = loadImage('assets/Slideshow2.png');
   sl3 = loadImage('assets/Slideshow3.png');
+  endslide = loadImage('assets/endScreen.png');
 
 
  
@@ -290,7 +293,7 @@ function setup() {
   sl1.resize(windowWidth/1.55, 0); 
   sl2.resize(windowWidth/1.55, 0);
   sl3.resize(windowWidth/1.55, 0);
-
+   endslide.resize(windowWidth/1.55, 0);
   flashImg.resize(150,0);
   flash2Img.resize(150,0);
   glowImg.resize(150,0);
@@ -685,15 +688,15 @@ function draw() {
      player.vel.x = 0; 
      player.vel.y = 0; 
       invis1.remove(); 
-     radioStatic();
+   //  radioStatic();
      
   
      }
     /*ALL TEXT STUFF */ 
      if((canMove == false) && i1 == true ){
           if(kb.presses("e")){
-            radioSND.stop(); 
-            radioSND.setVolume(0); 
+           // radioSND.stop(); 
+          // radioSND.setVolume(0); 
             canMove = true;
             canMenu = true; 
            i1 = false; 
@@ -720,14 +723,14 @@ function draw() {
        player.vel.x = 0; 
        player.vel.y = 0; 
         invis2.remove(); 
-      radioStatic();
+     // radioStatic();
     }
 
     if((canMove == false) && i2 == true ){
         if(kb.presses("e")){
           eMove = true;
-          radioSND.stop(); 
-          radioSND.setVolume(0); 
+       //   radioSND.stop(); 
+      //    radioSND.setVolume(0); 
           opening2.stop();
           SRSMusic();
           sC1 = true; 
@@ -810,7 +813,7 @@ function draw() {
         opening3.stop();
         opening3.setVolume(0);
         ceiling.image = clearImg; 
-      g1.y = -1000; 
+      g1.image = clearImg;  
       screen = 30; 
        // playLvl1(); 
        player.x = -1000;
@@ -1703,6 +1706,7 @@ function draw() {
 
     
     if(g1.image == glow2Img){
+       g1.image = clearImg; 
       if(player.collides(lvl1End))
         {
           lvl1End.y = -1000; 
@@ -1716,7 +1720,7 @@ function draw() {
           boundaries.removeAll();
   //        textBubbles.removeAll();
           txt5.y = -1000;
-          g1.y=-1000; 
+          g1.image = clearImg; 
           screen = 25; 
           shopSND.stop(); 
            player.x = -1000;
@@ -2240,7 +2244,7 @@ if(canHurt == true){
       rocks.removeAll(); 
       kelpBack1.remove(); 
       boundaries.removeAll();
-      g1.y = -2000;
+      g1.image = clearImg;
       txt3.y = -1000;
       lvl2SND.stop();
       player.y = 350;
@@ -2837,7 +2841,7 @@ if(canHurt == true){
       platforms.removeAll(); 
       enemies.removeAll();
       lamps.removeAll();
-      g1.y = -2000;
+      g1.image = clearImg;
       g3.y = -2000; 
       light.y = -2000; 
       hiders.removeAll();
@@ -3452,7 +3456,7 @@ eMove = false;
       lamps.removeAll();
       debris.removeAll();
       rocks.removeAll();
-      g1.y = -1000; 
+      g1.image = clearImg; 
       windySND.stop(); 
       deepSND.stop(); 
       boundaries.removeAll();
@@ -3957,48 +3961,48 @@ if (screen == 778)
           f15.scale = random(0.5, 1); 
         } 
 
-    if(f1.overlapping(player)){
+    if(f1.overlapping(player) || bullets.overlaps(f1)){
       f1.y = 0; 
     }
-      if(f2.overlapping(player)){
+      if(f2.overlapping(player)  || bullets.overlaps(f2)){
        f2.y = 0; 
       }
-      if(f3.overlapping(player)){
+      if(f3.overlapping(player)  || bullets.overlaps(f3)){
         f3.y = 0; 
       }
-      if(f4.overlapping(player)){
+      if(f4.overlapping(player) || bullets.overlaps(f4)){
         f4.y = 0; 
       }
 
-      if(f5.overlapping(player)){
+      if(f5.overlapping(player)  || bullets.overlaps(f5)){
         f5.y = 0; 
       }
 
-    if(f6.overlapping(player)){
+    if(f6.overlapping(player) || bullets.overlaps(f6)){
       f6.y = 0; 
     }
-    if(f7.overlapping(player)){
+    if(f7.overlapping(player) || bullets.overlaps(f7)){
       f7.y = 0; 
     }
 
-    if(f8.overlapping(player)){
+    if(f8.overlapping(player) || bullets.overlaps(f8)){
       f8.y = 0; 
     }
 
     
-      if(f11.overlapping(player)){
+      if(f11.overlapping(player) || bullets.overlaps(f11)){
         f11.y = 0; 
       }
-      if(f12.overlapping(player)){
+      if(f12.overlapping(player) || bullets.overlaps(f12)){
         f12.y = 0; 
       }
-      if(f13.overlapping(player)){
+      if(f13.overlapping(player) || bullets.overlaps(f13)){
         f13.y = 0; 
       }
-      if(f14.overlapping(player)){
+      if(f14.overlapping(player) || bullets.overlaps(f14)){
         f14.y = 0; 
       }
-      if(f15.overlapping(player)){
+      if(f15.overlapping(player) || bullets.overlaps(f15)){
         f15.y = 0; 
       }
 
@@ -4016,7 +4020,7 @@ if (screen == 778)
       invis1.remove(); 
     }
 
-    if(txt7 && dramatic2SND.isPlaying() == false){
+    if(sC6 == true && dramatic2SND.isPlaying() == false){
       dramaticSND.stop();
       dramaticSND.setVolume(0);
       dramatic2SND.play(); 
@@ -4091,7 +4095,7 @@ if (screen == 778)
     if(player.collides(lvl5End))
     {
       lvl5End.y = -1000;
-      g1.y = -1000;
+      g1.image = clearImg;
     //  textBubbles.removeAll(); 
       platforms.removeAll(); 
       enemies.removeAll();
@@ -4099,6 +4103,8 @@ if (screen == 778)
       dramaticSND.stop();
       dramatic2SND.stop();
       dramatic2SND.setVolume(0);
+      sC6 = false;
+      sC5 = false; 
       player.y = 350;
       player.x = 20; 
       camera.x=9000; 
@@ -4150,6 +4156,7 @@ if (screen == 778)
       textBubbles.removeAll();
       SND1.stop();
       dramatic2SND.stop();
+      volcanoMermaid.y = -90000000;
       dramatic2SND.setVolume(0);
       screen =80;
     }
@@ -4167,9 +4174,12 @@ if (screen == 778)
     music1();
     
     fill(255);
-    textSize(40);
+    textSize(20);
     textAlign(CENTER, TOP);
-    text("Our World Is Restored To Its Natural Order!\nThank you, Brave One!!", width / 2, height / 2 - 250);
+    text("You Saved Our World!\nThank You!", width / 2, height / 2 - 70);
+    if(restart.mouse.presses()){
+      location.reload(true);
+    }
   }
 
   if(screen == 100){
