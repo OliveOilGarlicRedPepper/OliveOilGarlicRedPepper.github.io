@@ -833,7 +833,7 @@ function draw() {
     background(backImg);
     if(theEnd) {theEnd.y= -1000;}
     coralBack.x = player.x + 70; 
-    invisibles.debug = mouse.pressing();
+ //   invisibles.debug = mouse.pressing();
    // player.debug = mouse.pressing();
     playerSetUp();
     ceiling.x = player.x + 90; 
