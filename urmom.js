@@ -1,10 +1,63 @@
 
 
 // HOME SCREEN && TUTORIAL 
+
+function lore1(){
+  if(!slide1){
+    slide1 = new Sprite(sl1, width/2, height/2, "n");
+  }
+
+  if(!nxtxt1){
+    nxtxt1 = new Sprite(camera.x+550, slide1.y,150,25,"s");
+    nxtxt1.color = color(27, 95, 122);
+    nxtxt1.textColor = "white";
+    nxtxt1.textSize = 15;
+    nxtxt1.text = "NEXT";
+    textFont('Courier New');
+  }
+  nxtxt1.x = slide1.x; 
+}
+
+function lore2(){
+  if(!slide2){
+    slide2 = new Sprite(sl2, width/2, height/2, "n");
+  }
+  if(!nxtxt2){
+    nxtxt2 = new Sprite(camera.x+550, slide2.y,150,25,"s");
+    nxtxt2.color = color(27, 95, 122);
+    nxtxt2.textColor = "white";
+    nxtxt2.textSize = 15;
+    nxtxt2.text = "NEXT";
+    textFont('Courier New');
+  }
+  nxtxt2.x = slide2.x; 
+
+}
+
+function lore3(){
+  if(!slide3){
+    slide3 = new Sprite(sl3, width/2, height/2, "n");
+  }
+  if(!nxtxt3){
+   nxtxt3 = new Sprite(camera.x+550, slide3.y,150,25,"s");
+    nxtxt3.color = color(27, 95, 122);
+    nxtxt3.textColor = "white";
+    nxtxt3.textSize = 15;
+    nxtxt3.text = "NEXT";
+    textFont('Courier New');
+  }
+  nxtxt3.x = slide3.x; 
+
+}
 function homeScreen() {
   screen = 0;
   background(titleBackImg);
-   musicToggle(); 
+//   musicToggle(); 
+   deathCount = 0;
+  deathCount3 = 0;
+     deathCount4 = 0;
+     deathCount5 = 0;
+  deathCount6 = 0;
 
 
   //Game titleif(!textTitle){
@@ -18,19 +71,23 @@ function homeScreen() {
 
   //Play button
   playButton = new Sprite(width / 4, height / 2, 100, 50, 'k');
-  playButton.color = color(106, 113, 173);
+  playButton.color = color(27, 95, 122);
   playButton.textColor = "white";
   playButton.textSize = 20;
   playButton.text = "Play!";
+  textFont('Courier New');
+
 
  
 
   //Directions button
-  directionsButton = new Sprite(width/4 + width / 2, height / 2, 100, 50, 'k');
-  directionsButton.color = color(106, 113, 173);
+  directionsButton = new Sprite(width/4 + width / 2, height / 2, 150, 50, 'k');
+  directionsButton.color = color(27, 95, 122);
   directionsButton.textColor = "white";
   directionsButton.textSize = 15;
   directionsButton.text = "Choose Level";
+  textFont('Courier New');
+
 
  
   textTitle = new Sprite(titleTextImg, windowWidth/2, windowHeight/2, "n");
@@ -41,8 +98,8 @@ function homeScreen() {
 }
 
 function directionsScreen() {
-  background(132, 141, 217);
-   musicToggle(); 
+  background(titleBackImg);
+  // musicToggle(); 
 
   playButton.pos = { x: -11200, y: -1300 };
   directionsButton.pos = { x: -1500, y: -4100 };
@@ -52,34 +109,36 @@ function directionsScreen() {
   textSize(30);
   textAlign(CENTER, TOP);
   text("Stuck on a level and want to skip ahead?\nOr maybe you really like a certain level and want to play again?\nClick on wherever you'd like to go!\n(We recommend you play the whole thing through first.)", width / 2, height / 2 - 200);
+  textBubbles.color = 'black';
+
 
   //Directions (description of game)
   goLvl1 = new Sprite(width / 2 - 350, height / 2 + 50, 300, 50, 'k');
-  goLvl1.color = color(106, 113, 173);
+  goLvl1.color = color(27, 95, 122);
   goLvl1.textColor = "white";
   goLvl1.textSize = 20;
   goLvl1.text = "Skip to Level 1";
 
-  goLvl2 = new Sprite(width / 2 + 350, height / 2 + 50, 300, 50, 'k');
-  goLvl2.color = color(106, 113, 173);
+  goLvl2 = new Sprite(width / 2 + 350, height / 2 + 50, 300, 50, 'lok');
+  goLvl2.color = color(27, 95, 122);
   goLvl2.textColor = "white";
   goLvl2.textSize = 20;
   goLvl2.text = "Skip to Level 2";
 
   goLvl3 = new Sprite(width / 2 - 350, height / 2 + 150, 300, 50, 'k');
-  goLvl3.color = color(106, 113, 173);
+  goLvl3.color = color(27, 95, 122);
   goLvl3.textColor = "white";
   goLvl3.textSize = 20;
   goLvl3.text = "Skip to Level 3";
 
   goLvl4 = new Sprite(width / 2, height / 2 + 150, 300, 50, 'k');
-  goLvl4.color = color(106, 113, 173);
+  goLvl4.color = color(27, 95, 122);
   goLvl4.textColor = "white";
   goLvl4.textSize = 20;
   goLvl4.text = "Skip to Level 4";
 
   goLvl5 = new Sprite(width / 2 + 350, height / 2 + 150, 300, 50, 'k');
-  goLvl5.color = color(106, 113, 173);
+  goLvl5.color = color(27, 95, 122);
   goLvl5.textColor = "white";
   goLvl5.textSize = 20;
   goLvl5.text = "Skip to Level 5";
@@ -87,7 +146,7 @@ function directionsScreen() {
 
   //Back button
   backButton = new Sprite(width / 2, height / 2 + 50, 125, 40, "k");
-  backButton.color = color(106, 113, 173);
+  backButton.color = color(27, 95, 122);
   backButton.textColor = "white";
   backButton.textSize = 15;
   backButton.text = "Back to Home";
@@ -95,13 +154,20 @@ function directionsScreen() {
 
 function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
   lvl = 0;
+  sC1 = false; 
+  deathCount = 0; 
   textTitle.pos = { x: -1500, y: -4100 };
   totHealth = 100;
   eHealth = 100;
+  if(musicCheck % 2 == 0){
+  opening2.setVolume(1); 
+    opening3.setVolume(1);
+  }
   canMove = true; 
   eMove = false;
   e1Check = false;
   e2Check = false; 
+  eC = false; 
   
   //Create player
   playButton.pos = { x: -5100, y: -5100 };
@@ -159,7 +225,8 @@ function tutorialScreenAssests() {//MAIN TUTORIAL SCREEN
   c2 = new rocks.Sprite(coralImg, 1500, 470, "n"); 
   
   boundary = new  boundaries.Sprite(rockBoundary, 0, 300, "s")
-  boundary.text = "WASD or \nARROW KEYS \nto move. Press M to \ntoggle the music!\n ---S4LM0N";
+  textStyle(BOLD); 
+  boundary.text = "Use WASD or        \nARROW KEYS to move.        \nPress ESCAPE to       \nbring up the menu        \n\n ---S4LM0N         ";
   boundary.textColor = "grey";
   boundary.textSize = 15;
   boundary1 = new rocks.Sprite(rockBoundary, -300, 300, "s")
@@ -187,36 +254,19 @@ if(!ground){
 }
   ground.friction = 0;
   ground.x = camera.x;
+   ground.image = groundImg1;
   ceiling.x = camera.x; 
   getPlayer();
-
+   healthBar.w = 200;
+  healthFront.y = 20;
+  healthBar.y = 20; 
   player.pos = { x: 200, y: 350 };
 
   healthBar.x = player.x;
   healthBar.layer = 2000; 
 
 
-  //Extra mobility for the player 
-  /*
-  ang1 = new angles.Sprite(player.x, player.y - 100, "n"); //up
-  ang2 = new angles.Sprite(player.x, player.y + 100, "n"); //down
-  ang3 = new angles.Sprite(player.x - 50, player.y + 100, "n"); //northwest
-  ang4 = new angles.Sprite(player.x + 50, player.y + 100, "n"); //northeast
-  ang5 = new angles.Sprite(player.x + 50, player.y - 100, "n"); //southwest
-  ang6 = new angles.Sprite(player.x - 50, player.y - 100, "n"); //southeast
-  ang7 = new angles.Sprite(player.x + 50, player.y, "n"); //right
-  ang8 = new angles.Sprite(player.x - 50, player.y, "n"); //left
-
-  ang1.x = player.x; ang1.y = player.y - 100;
-  ang2.x = player.x; ang2.y = player.y + 100;
-  ang3.x = player.x - 50; ang3.y = player.y + 100;
-  ang4.x = player.x + 50; ang4.y = player.y + 100;
-  ang5.x = player.x + 50; ang5.y = player.y - 100;
-  ang6.x = player.x - 50; ang6.y = player.y - 100;
-  ang7.x = player.x + 50; ang7.y = player.y;
-  ang8.x = player.x - 50; ang8.y = player.y;
-  
-*/
+ 
 
 if(!theEnd) { theEnd = new doors.Sprite(); 
   theEnd.x = 2050; 
@@ -227,6 +277,9 @@ if(!theEnd) { theEnd = new doors.Sprite();
   g1.layer = 1; 
   theEnd.layer = 5; 
             }
+  theEnd.y = 300; 
+  g1.y = theEnd.y; 
+  g1.image = clearImg;
 
   //end of tutorial
   

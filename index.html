@@ -17,11 +17,20 @@
 </head>
 
 <body>
+  <!-- <div class="loader"></div> -->
+  <div id="loader"></div>
+   <div id="content">
   <script src="script.js"></script>
   <script src="urmom.js"></script>
   <script src="player.js"></script>
   <script src="Levels.js"></script>
-
+     </div>
+  <script>
+    var preloader = document.getElementById('loader');
+    function preLoaderHandler(){
+        preloader.style.display = 'none';
+    }
+  </script>
 
 </body>
 

@@ -1,26 +1,50 @@
 
 /* VARIABLES */
-let playButton, directionsButton, backButton, textTitle; //for homescreen
+let playButton, directionsButtaon, backButton, textTitle,menu, mb1, mb2, mback; //for homescreen
 let player, ground, theEnd, bullets, light; //for ALL
-let healthBar, enemyHealthBar, e1, eH1, e2, eh2, d1, d2, d3, d4, d5, d6, healthFront, healthDMG; //for ALL
+let healthBar, enemyHealthBar, e1, eH1, e2, eh2, d1, d2, d3, d4, d5, d6,d21, healthFront, healthDMG; //for ALL
+
+let yomama;
+
+let sC1, sC2, sC3, sC4, sC5, sC6, sC7 = false; 
+
+let fade; 
+let fadeAmt = 1; 
+
+let canMenu = true; 
+let eC, eC1, eC2, eC3, eC4, eC5,eC6,eC7,eC8,eC9,eC10,eC11,eC12,eC13,eC14,eC15,eC16,eC17,eC18,eC19,eC20 = false; 
+let loading = true; 
+
+let weC1, weC2, weC3 = false; 
+
+let veC1, veC2, veC3, veC4, veC5, veC6, veC7, veC8 = false; 
 
 let goLvl1, goLvl2, goLvl3, goLvl4, goLvl5; 
 let vHealth = 100; 
 let hc1, hc2, hc3, hc4, hc5, hc6, hc7, hc8, hc9, hc10, hc11, hc12, hc13, hc14, hc15, hc16 = 100; 
-
+let menuCheck = 0; 
 let vCheck = false; 
+
+let H1H, H2H, H3H, H4H, H5H, H6H, H7H, H8H, H9H, H10H, H11H, H12H, H13H, H14H, H15H, H16H, H17H, H18H, H19H, H20H = 0; 
+
+let nC1, nC2, nC3, nC4, nC5, nC6, nC7, nC8, nC9, nC99 = 0; 
+
+let deathCount, deathCount3, deathCount4, deathCount5,  deathCount6 = 0; 
 
 let totHealth = 100;
 let maxHealth = 100;
 let enemies, kelps, platforms,lamps, rocks, invisibles, lanterns, corals, doors, deaths, oils, nets, debris, boundaries, angles, hiders, stores; //ALL INTERACTIVE SPRITES 
 
 let storeFront, storeBack, storeBack2, storeBack3, storeBack4, storeBack5, storeBack6, storeFront2,storeFront3, storeFront4, storeFront5, storeFront6, tester, kelpMermaid, coralMermaid, shipMermaid,whaleMermaid,volcanoMermaid, uno, dos, tres, uno1, dos2, tres3, cuatro, cinco, seis,kelpMermaid2, coralMermaid2, shipMermaid2,whaleMermaid2; 
-let txt4, txt5; 
+let txt3, txt4, txt5, txt6, txt7, txt8; 
+let nextText, nextText1, nextText2, nextText3, nextText4, nextText5, nextText6, nextText7, nextText8, nextText9, nextText10, nextText11, nextText12, nextText13, nxtxt1, nxtxt2, nxtxt3, nxtxt4, nxtxt5, nxtxt6, nxtxt7;
 
 let netCount1;
 let entrance;
 let g3; 
 let volcanoFish; 
+
+let slide1, slide2, slide3; 
 
 let canHurt = true; 
 
@@ -44,83 +68,62 @@ let lvl2End;
 let lvl3End;
 let lvl4End;
 let lvl5End;
-let screen = 0;
+let screen = 1010;
 let lvl = 0;
 let counter = 0;
 let Lcounter = 0; 
 
-/* PRELOAD LOADS FILES */
+
+/* PRELOAD LOADS FILES */ 
 function preload() {
-    
   titleBackImg = loadImage('assets/TitleBack.png');
   titleTextImg = loadImage('assets/TitleText.png');
 boatImg = loadImage('assets/FishIdle1.png');
 platImg = loadImage('assets/Platform.png');
 backImg = loadImage('assets/Stage1Back.jpg');
-  backImg2 = loadImage('assets/Stage2Back.jpg');
-  backImg4 = loadImage('assets/Stage4Back.jpg');
-  backImg5 = loadImage('assets/Stage5Back.png');
-  kelpImg = loadImage('assets/Kelp.png');
+  menuBackImg = loadImage('assets/menuBack.png'); 
+
   lampImg = loadImage('assets/Radio.png');
   coralImg = loadImage('assets/Coral.png');
   clearImg = loadImage('assets/clear.png');
   clearImg1 = loadImage('assets/clear.png');
-  kelpBackImg = loadImage('assets/KelpGroupBack.png');
-  kelpFrontImg = loadImage('assets/KelpGroupFront.png');
   textBubbleImg = loadImage('assets/RadioBubble.png');
   coralBackImg = loadImage('assets/CoralBack.png');
   endGoalImg = loadImage('assets/Lamp.png');
-  glowImg = loadImage('assets/Glow.png');
-  glow2Img = loadImage('assets/Glow2.png');
-  glow3Img = loadImage('assets/Glow3.png');
- 
 
-  
  groundImg1 = loadImage('assets/Stage1Floor.jpg');
-  groundImg2 = loadImage('assets/Stage2Floor.jpg');
-  groundImg3 = loadImage('assets/Stage3Floor.jpg');
-  groundImg4 = loadImage('assets/Stage4Floor.jpg');
-  groundImg5 = loadImage('assets/Stage5Floor.png');
-  
   blockImg1 = loadImage('assets/Block1.png');
     blockImg1a =loadImage('assets/Block1a.png');
     blockImg1b =loadImage('assets/Block1b.png')
-  blockImg2 = loadImage('assets/Block2.png');
-  blockImg4 = loadImage('assets/Block4.png');
-  blockImg5 = loadImage('assets/Block5.png');
-
   rockBoundary = loadImage('assets/RockBoundary.png');
   hiderImg = loadImage('assets/darkEST.png'); 
-  
   rockOneImg = loadImage('assets/RockOne.png');
   rockTwoImg = loadImage('assets/RockTwo.png');
   rockThreeImg = loadImage('assets/RockThree.png'); 
-  
   healthBarImg = loadImage('assets/HealthFront.png');
 healthImg = loadImage('assets/HealthBack.png'); 
-  
-  storeFrontImg = loadImage('assets/StoreFront.png');
-  storeBackImg = loadImage('assets/StoreBack.jpg');
-  
-  netImg1 = loadImage('assets/NetOpen.png');
-  netImg2 = loadImage('assets/NetClosed.png');
-  
   e1 = loadImage('assets/EnemyMove1.png');
   e2 = loadImage('assets/EnemyMove2.png');
   e3 = loadImage('assets/EnemyMove3.png');
   e4 = loadImage('assets/EnemyMove4.png');
-  
-  MerAbi1Img = loadImage('assets/Abi1.png');
-  MerAbi2Img = loadImage('assets/abi2.png');
-  MerNat1Img = loadImage('assets/Tali1.png');
-  MerNat2Img = loadImage('assets/Tali2.png');
-  MerHgtv1Img = loadImage('assets/Hasset1.png');
-  MerHgtv2Img = loadImage('assets/Hasset2.png');
-  MerSyd1Img = loadImage('assets/Sydney1.png');
-  MerSyd2Img = loadImage('assets/Sydney2.png');
-  MerCal1Img = loadImage('assets/Cal1.png');
-  MerCal2Img = loadImage('assets/Cal2.png');
-  
+
+  sl1 = loadImage('assets/Slideshow1.png');
+  sl2 = loadImage('assets/Slideshow2.png');
+  sl3 = loadImage('assets/Slideshow3.png');
+
+
+ 
+  MerAbi1Img = loadImage('assets/LavaAbi1.png');
+  MerAbi2Img = loadImage('assets/LavaAbi2.png');
+  MerNat1Img = loadImage('assets/BlueTali1.png');
+  MerNat2Img = loadImage('assets/BlueTali2.png');
+  MerHgtv1Img = loadImage('assets/GlowHasset1.png');
+  MerHgtv2Img = loadImage('assets/GlowHasset2.png');
+  MerSyd1Img = loadImage('assets/GreenSydney1.png');
+  MerSyd2Img = loadImage('assets/GreenSydney2.png');
+  MerCal1Img = loadImage('assets/BlueCal1.png');
+  MerCal2Img = loadImage('assets/BlueCal2.png');
+
 
   oilImg = loadImage('assets/Oil.png');
   oil2Img = loadImage('assets/Oil2.png');
@@ -142,51 +145,84 @@ healthImg = loadImage('assets/HealthBack.png');
   v4 = loadImage('assets/VolcanoDebris4.png');
   v5 = loadImage ('assets/VolcanoDebris5.png'); 
 
+  glowImg = loadImage('assets/Glow.png');
+  glow2Img = loadImage('assets/Glow2.png');
+  glow3Img = loadImage('assets/Glow3.png');
+  backImg2 = loadImage('assets/Stage2Back.jpg');
+  backImg4 = loadImage('assets/Stage4Back.jpg');
+  backImg5 = loadImage('assets/Stage5Back.png');
+  kelpImg = loadImage('assets/Kelp.png');
+  blockImg2 = loadImage('assets/Block2.png');
+  blockImg4 = loadImage('assets/Block4.png');
+  blockImg5 = loadImage('assets/Block5.png');
+
+  kelpBackImg = loadImage('assets/KelpGroupBack.png');
+  kelpFrontImg = loadImage('assets/KelpGroupFront.png');
+
+  groundImg2 = loadImage('assets/Stage2Floor.jpg');
+  groundImg3 = loadImage('assets/Stage3Floor.jpg');
+  groundImg4 = loadImage('assets/Stage4Floor.jpg');
+  groundImg5 = loadImage('assets/Stage5Floor.png');
+  storeFrontImg = loadImage('assets/StoreFront.png');
+  storeBackImg = loadImage('assets/StoreBack.jpg');
+
   shipWreckImg = loadImage('assets/ShipEntrance.png'); 
+
+  netImg1 = loadImage('assets/NetOpen.png');
+  netImg2 = loadImage('assets/NetClosed.png');
+
  //chiseledFont = loadFont('assets/Chiseled-KExl.ttf');
 
   //SOUNDS
   eDeathSND = loadSound('assets/eDeathTEST.mp3');
-  opening = loadSound('assets/music/Opening music.m4a');
-  shopSND = loadSound('assets/music/Cafe.m4a');
-  opening2 = loadSound('assets/music/Opening2.m4a');
-  opening3 = loadSound('assets/music/Opening3.m4a');
-  SND1 = loadSound('assets/music/My Song 2.m4a');
-  dramaticSND = loadSound('assets/music/Dramatic.m4a'); 
+  opening = loadSound('assets/music/l5.m4a');
+  opening2 = loadSound('assets/music/l3.m4a');
+  opening21 = loadSound('assets/music/l3.m4a');
+  opening3 = loadSound('assets/music/new1.m4a');
+  shopSND = loadSound('assets/music/new3.m4a');
+  SND1 = loadSound('assets/music/mysong2.m4a');
+  dramatic2SND = loadSound('assets/music/new5.m4a');
+  dramaticSND = loadSound('assets/music/new4.m4a'); 
   windySND = loadSound('assets/music/windy.mp3'); 
-  lvl2SND = loadSound('assets/music/r1.mp3'); 
-  lvl3SND = loadSound('assets/music/r2.mp3');
+  lvl2SND = loadSound('assets/music/LL1.m4a'); 
+  lvl3SND = loadSound('assets/music/LL2.m4a');
   deepSND = loadSound('assets/music/r4.mp3'); 
   flutterSND = loadSound('assets/music/r3.mp3'); 
-  
+  radioSND = loadSound('assets/music/radio.m4a'); 
   //ANIMATIONS
   enemyMoveAni = loadAnimation(e1,e2,e3,e4);
-  volcanoFishAni = loadAnimation('assets/VolcanoFish1', 'assets/VolcanoFish2.png','assets/VolcanoFish3.png', 'assets/VolcanoFish4.png', 'assets/VolcanoFish5.png')
+  
    fishIdleAni = loadAnimation('assets/FishIdle1', 'assets/FishIdle3.png', 'assets/FishIdle4.png');
    fishMoveAni = loadAnimation('assets/FishMove1.png', 'assets/FishMove2.png', 'assets/FishMove3.png', 'assets/FishMove4.png', 'assets/FishMove3.png');
 
   fishDieAni = loadAnimation('assets/FishDie1.png', 'assets/FishDie2.png', 'assets/FishDie3.png', 'assets/FishDie4.png', 'assets/FishDie5.png');
 
+  volcanoFishAni = loadAnimation('assets/VolcanoFish1', 'assets/VolcanoFish2.png','assets/VolcanoFish3.png', 'assets/VolcanoFish4.png', 'assets/VolcanoFish5.png');
   
 }
 
 /* SETUP RUNS ONCE */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  homeScreen();
+  lore1(); 
+  music1();
+  preloader.remove();
+  rectMode(CORNER);
+
+  
 
   titleTextImg.resize(500, 0);
   boatImg.resize(100,0);// (controls width, 0)
   healthImg.resize(130,20);
   healthBarImg.resize(220,0);
-  coralBackImg.resize(1300,0);
-  kelpBackImg.resize(windowWidth+100,0);
+  coralBackImg.resize(1600,0);
+  kelpBackImg.resize(windowWidth,0);
   kelpFrontImg.resize(500,0);
   platImg.resize(windowWidth, 0);
   lampImg.resize(100, 0);
   kelpImg.resize(150, 0);
   coralImg.resize(100, 0);
-  textBubbleImg.resize(150,0);
+  textBubbleImg.resize(265,0);
   storeBackImg.resize(800, 0);
   storeFrontImg.resize(800, 0);
   MerAbi1Img.resize(450,0);
@@ -200,6 +236,7 @@ function setup() {
   MerCal1Img.resize(450,0);
   MerCal2Img.resize(450,0);
   hiderImg.resize(40, 0); 
+  menuBackImg.resize(windowWidth, 0);
 
   endGoalImg.resize(windowHeight, windowHeight); 
   glow2Img.resize(500,0); 
@@ -250,7 +287,9 @@ function setup() {
    blockImg4.resize(150,0);
    blockImg5.resize(150,0);
 
-  
+  sl1.resize(windowWidth/1.55, 0); 
+  sl2.resize(windowWidth/1.55, 0);
+  sl3.resize(windowWidth/1.55, 0);
 
   flashImg.resize(150,0);
   flash2Img.resize(150,0);
@@ -360,6 +399,9 @@ fishMoveAni.scale = 0.15;
   textBubbles.collider = "n"; 
   textBubbles.color = 'white'; 
 
+  nexts = new Group(); 
+  nexts.collider = "k"; 
+
   deaths = new Group(); 
   deaths.collider = "n"; 
 
@@ -371,6 +413,7 @@ fishMoveAni.scale = 0.15;
   nets = new Group();
   nets.collider = "n"; 
   nets.color = "white";
+  nets.layer = 100; 
 
   hiders = new Group();
   hiders.collider = "k";
@@ -393,7 +436,7 @@ fishMoveAni.scale = 0.15;
   
 //LAYERING
  lamps.layer = 2.5; //light is layer 2, player is layer 3, healthbar is layer 7 & 8, coral back is 2
- textBubbles.layer = 1; 
+ textBubbles.layer = 1000; 
   deaths.layer = 5; 
   doors.layer = 4; 
   debris.layer = 10; 
@@ -405,16 +448,59 @@ fishMoveAni.scale = 0.15;
   oils.layer = 6;
   corals.layer= 2; 
 
- // camera.zoom = 0.5; 
+// camera.zoom = 0.5; 
 
 }
 
 /* DRAW LOOP REPEATS */
 function draw() {
+  if(screen == 1010){ // LORE #1 
+    music1();
+    background(0,0,0);
+
+    
+   
+    if(nxtxt1.mouse.presses()){
+      screen = 1011;
+      slide1.remove();
+      nxtxt1.remove(); 
+      lore2(); 
+    }
+  }
+
+  if(screen == 1011){ //LORE #2 
+
+    background(0,0,0);
+   
+    if(nxtxt2.mouse.presses()){
+      screen = 1012;
+      slide2.remove();
+      nxtxt2.remove(); 
+      lore3(); 
+    }
+
+  }
+
+
+  if(screen == 1012){ //LORE #3 
+
+    background(0,0,0);
+   
+    if(nxtxt3.mouse.presses()){
+      screen = 0;
+      slide3.remove();
+      nxtxt3.remove(); 
+      homeScreen(); 
+    }
+
+
+  } // END LORE BIT, BEGIN TITLE SCREEN TO MAIN GAME
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
   if (screen == 0) {
     background(titleBackImg);
     music1();
-    musicToggle(); 
+  //  musicToggle(); 
     if(directionsButton.mouse.presses()){
       screen = 1; //TSA INFO 
       directionsScreen();
@@ -455,6 +541,7 @@ function draw() {
        goLvl5.pos = {x: -500, y:-500};
        ground = new Sprite(groundImg1, width / 3, 595, "s");
       getPlayer();
+      opening.stop(); 
       
       playLvl1(); 
     }
@@ -468,6 +555,7 @@ function draw() {
        goLvl5.pos = {x: -500, y:-500};
        ground = new Sprite(groundImg1, width / 3, 595, "s");
       getPlayer();
+      opening.stop(); 
       playLvl2(); 
     }
     if(goLvl3.mouse.presses()){
@@ -480,7 +568,9 @@ function draw() {
        goLvl5.pos = {x: -500, y:-500};
        ground = new Sprite(groundImg1, width / 3, 595, "s");
       getPlayer();
+      playerSetUp();
        hide(); 
+      opening.stop(); 
       playLvl3(); 
     }
 
@@ -496,6 +586,7 @@ function draw() {
       getPlayer();
       dash();
        hide(); 
+      opening.stop(); 
       playLvl4(); 
     }
     if(goLvl5.mouse.presses()){
@@ -513,9 +604,15 @@ function draw() {
        dash();
       g3 = new Sprite(glowImg, player.x, player.y, "n"); 
       g3.layer = light.layer;
+      opening.stop(); 
       playLvl5(); 
     }
   }
+
+
+
+
+  
   //FIRST GAME ROOOM TUTORIAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   if (screen == 2){ //TUTORIAL SETUP
     background(backImg);
@@ -525,18 +622,24 @@ function draw() {
     player.mirror.x = true;
     //invisibles.debug = mouse.pressing();
     //enemies.debug= mouse.pressing(); 
-   /* ang1.x = player.x; ang1.y = player.y - 100;
-    ang2.x = player.x; ang2.y = player.y + 100;
-    ang3.x = player.x - 50; ang3.y = player.y + 100;
-    ang4.x = player.x + 50; ang4.y = player.y + 100;
-    ang5.x = player.x + 50; ang5.y = player.y - 100;
-    ang6.x = player.x - 50; ang6.y = player.y - 100;
-    ang7.x = player.x + 50; ang7.y = player.y;
-    ang8.x = player.x - 50; ang8.y = player.y;
-   */ 
+ 
     playerSetUp();
     ceiling.x = player.x + 90; 
-    
+
+    if (menuCheck % 2 != 0){
+      eMove = false; 
+      e1.vel.x = 0; 
+      e2.vel.x = 0;
+      e1.vel.y = 0;
+      e2.vel.y = 0; 
+      canHurt = false; 
+    } else {
+      if(eC == true){
+      eMove = true; 
+      }
+      canHurt = true; 
+    }
+
    
     if(eMove == true)
     {
@@ -574,24 +677,31 @@ function draw() {
    if (player.overlapping(invis1))
    {
      i1 = true; 
-     txt = new textBubbles.Sprite(textBubbleImg, 600, 200, "n");
-      txt.text = "Welcome Unit F15H. \nFirst day on the job, eh? \n See that green thing up top?\nThat's your health bar.\nDon't let it drop. \n Press E to Continue";
-      txt.textSize = 10;
+     canMenu = false; 
+     txt = new textBubbles.Sprite(textBubbleImg, 660, 190, "n");
+      txt.text = "Welcome Unit F15H. \nFirst day, eh? This\ncalls for a tutorial!\nThat green thing above\nyou is your health bar.\nDon't let it drop. \n (Press E to Continue)";
+      txt.textSize = 15;
        canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
      player.vel.x = 0; 
      player.vel.y = 0; 
       invis1.remove(); 
+     radioStatic();
      
   
      }
     /*ALL TEXT STUFF */ 
      if((canMove == false) && i1 == true ){
           if(kb.presses("e")){
+            radioSND.stop(); 
+            radioSND.setVolume(0); 
             canMove = true;
+            canMenu = true; 
            i1 = false; 
             textBubbles.remove(); 
           } else{
-            canMove = false; 
+            canMove = false;
+            
+            canMenu = false; 
     
           }
       }
@@ -601,24 +711,36 @@ function draw() {
     /* EVENT NUMBER 2: RADIO 2 ENEMY BATTLES */
     if (player.overlapping(invis2)){
       i2 = true; 
-       txt = new textBubbles.Sprite(textBubbleImg, 1400, 200, "n");
-      txt.text = "F15H! Those poor fish have \nbeen infected with chemicals!\n Totally tubular! \nPut them out of their misery. \nPress SPACE to shoot.\n Press E to Continue.";
-        txt.textSize = 10;
+      canMenu = false; 
+      
+       txt = new textBubbles.Sprite(textBubbleImg, 1460, 195, "n");
+      txt.text = "Watch out! \nThose poor fish have \nbeen corrupted by human \nchemicals. They're no \nlonger beings of the sea.\n*Press 'SPACE' to shoot.*\n (Press E to Continue)";
+        txt.textSize = 15;
          canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
        player.vel.x = 0; 
        player.vel.y = 0; 
         invis2.remove(); 
-      
+      radioStatic();
     }
 
     if((canMove == false) && i2 == true ){
         if(kb.presses("e")){
-          eMove = true; 
+          eMove = true;
+          radioSND.stop(); 
+          radioSND.setVolume(0); 
+          opening2.stop();
+          SRSMusic();
+          sC1 = true; 
+          opening2.setVolume(0);
           canMove = true;
+          canMenu = true; 
+          eC = true; 
         i2 = false; 
           textBubbles.remove(); 
         } else{
+          sC1 = false; 
           canMove = false; 
+          canMenu = false; 
 
         }
     }
@@ -631,6 +753,7 @@ function draw() {
 
     if(totHealth == 0){
       screen = 100;
+       
       enemies.remove(); 
       
     }
@@ -672,7 +795,7 @@ function draw() {
       if(eh1.w <= 0){
       platforms.removeAll(); 
       opening2.stop();
-      theEnd.remove(); 
+      theEnd.y = -1000;  
       enemies.removeAll(); 
       rocks.removeAll();
       lamps.removeAll();
@@ -683,17 +806,17 @@ function draw() {
       enemyHealthBar.removeAll();
         boundaries.removeAll();
         shopSND.stop(); 
-        ground.remove();
-        
+        ground.image = clearImg; 
+        opening3.stop();
+        opening3.setVolume(0);
         ceiling.image = clearImg; 
-      g1.remove(); 
+      g1.y = -1000; 
       screen = 30; 
        // playLvl1(); 
        player.x = -1000;
         player.vel.x = 0;
         player.vel.y = 0; 
         player.y = 350;
-        player.x = 20;
         playLvl1();
       }
     }
@@ -701,41 +824,43 @@ function draw() {
     
   }
 
-  
+  //END TUTORIAL SETUP, BEGIN THE REAL GAME :D 
 
   if(screen == 30){ //lvl 1: coral reef//chemical enemy
     background(backImg);
     if(theEnd) {theEnd.y= -1000;}
     coralBack.x = player.x + 70; 
-    //invisibles.debug = mouse.pressing();
+    invisibles.debug = mouse.pressing();
    // player.debug = mouse.pressing();
     playerSetUp();
     ceiling.x = player.x + 90; 
     lvl1Music(); 
     
     SND1.stop(); 
-    if (!txt4)
+  /*  if (!txt4)
     {
-     txt4 = new textBubbles.Sprite(textBubbleImg, 420, -200, "n");
+      
+     txt4 = new textBubbles.Sprite(textBubbleImg, 450, -200, "n");
       txt4.text = "Watch out for enemies! \nThey're EVERYWHERE!!\nShoot them all to light the lamp. \n Press E to continue";
-        txt4.textSize =10;
+        txt4.textSize =15;
       player.vel.x = 0; 
        player.vel.y = 0; 
 
     }
    
     // RADIO STUFF=================================
-  if (player.overlapping(invis0))
+/*  if (player.overlapping(invis0))
       {
         canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
+        canMenu = false; 
         if (!txt4)
         {
-          txt4 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
+          txt4 = new textBubbles.Sprite(textBubbleImg, 470, 200, "n");
         
 
         }
         txt4.text = "Watch out for enemies! \nThey're EVERYWHERE!!\nShoot them all to light the lamp. \n Press E to continue";
-          txt4.textSize =10;
+          txt4.textSize =15;
         player.vel.x = 0; 
          player.vel.y = 0; 
         txt4.y = 200; 
@@ -750,19 +875,32 @@ function draw() {
         txt4.y = -200; 
         invis0.remove();
         canMove = true;
+        canMenu = true; 
         i2 = false;
       }
     }
-
+// */
     if(player.overlapping(invis100))
       { 
-          if(!txt5){
-          txt5 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-          }
-          txt5.text = "bzzt... bzzt... \nDon't get caught in the oil! \n You don't know what's \nwaiting for you in there!\n'Heal' all corrupted fish to progress. \nPress E to continue";
-          txt5.textSize = 10;
-        canMove = false;
+         canMove = false;
+        canMenu = false; 
+        txt5.y = 200; 
+          
+        if(deathCount == 0){
+          txt5.text = "Welcome to the Coral\nReef! Beware, those oil\nspills are good hiding\nplaces. Eliminate ALL\ncorrupted fish, and do\nit quick! I need help!\n(Press E to continue)";
+        } else if (deathCount == 1){
+          txt5.text = "Yikes... that looked\nlike it hurt… But don't\nforget! You must\neliminate EVERY SINGLE\nfish to continue.\n(Press E to continue)" 
+        } else if (deathCount == 2){
+          txt5.text = "Struggling, huh? Maybe\nmaking a mad dash to the\nend and using the rocks\nto trap them will help.\nThat's what S4LM0N did..\n(Press E to continue)"
+        } else if(deathCount >= 3){
+          txt5.text = "...Even S4LM0N got\nfurther than this...\n(Press E to continue)" 
+        }
+          txt5.textSize = 15;
+    
+        player.vel.x = 0; 
+         player.vel.y = 0; 
         i2 = true; 
+        
 
         if(kb.presses("e"))
         {
@@ -771,6 +909,7 @@ function draw() {
           invis100.remove();
           canMove = true;
            i2 = false; 
+          canMenu = true; 
         } 
       }   
 // END OF RADIO STUFF===============================
@@ -803,7 +942,19 @@ function draw() {
           }else{
             e1.mirror.x = false;
           }
-
+    }
+    if (menuCheck % 2 != 0){
+      eMove = false; 
+      e1.vel.x = 0; 
+      e2.vel.x = 0;
+      e1.vel.y = 0;
+      e2.vel.y = 0; 
+      canHurt = false; 
+    } else {
+      if(eC1 == true){
+      eMove = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove2 == true ){
@@ -817,7 +968,19 @@ function draw() {
           }else{
             e3.mirror.x = false;
           }
+   
 
+    }
+    if (menuCheck % 2 != 0){
+      eMove2 = false; 
+      e3.vel.x = 0; 
+      e3.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC2 == true){
+      eMove2 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove3 == true ){
@@ -832,7 +995,17 @@ function draw() {
           }else{
             e4.mirror.x = false;
           }
-
+    }
+    if (menuCheck % 2 != 0){
+      eMove3 = false; 
+      e4.vel.x = 0; 
+      e4.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC3 == true){
+      eMove3 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove4 == true ){
@@ -847,7 +1020,18 @@ function draw() {
 
       eh5.x = e5.x; 
        eh5.y = e5.y - 25;
-
+      
+    }
+    if (menuCheck % 2 != 0){
+      eMove4 = false; 
+      e5.vel.x = 0; 
+      e5.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC4 == true){
+      eMove4 = true; 
+      }
+      canHurt = true; 
     }
 
   
@@ -863,7 +1047,18 @@ function draw() {
           }else{
             e6.mirror.x = false;
           }
-
+     
+    }
+    if (menuCheck % 2 != 0){
+      eMove6 = false; 
+      e6.vel.x = 0; 
+      e6.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC6 == true){
+      eMove6 = true; 
+      }
+      canHurt = true; 
     }
 
 /*    if(eMove7 == true ){
@@ -895,7 +1090,18 @@ function draw() {
           }else{
             e8.mirror.x = false;
           }
-
+   
+    }
+    if (menuCheck % 2 != 0){
+      eMove8 = false; 
+      e8.vel.x = 0; 
+      e8.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC8 == true){
+      eMove8 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove9 == true ){
@@ -911,7 +1117,18 @@ function draw() {
           }else{
             e9.mirror.x = false;
           }
-
+   
+    }
+    if (menuCheck % 2 != 0){
+      eMove9 = false; 
+      e9.vel.x = 0; 
+      e9.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC9 == true){
+      eMove9 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove10 == true ){
@@ -926,7 +1143,18 @@ function draw() {
           }else{
             e10.mirror.x = false;
           }
-
+    
+    }
+    if (menuCheck % 2 != 0){
+      eMove10 = false; 
+      e10.vel.x = 0; 
+      e10.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC10 == true){
+      eMove10 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove11 == true ){
@@ -942,7 +1170,18 @@ function draw() {
           }else{
             e11.mirror.x = false;
           }
-
+     
+    }
+    if (menuCheck % 2 != 0){
+      eMove11 = false; 
+      e11.vel.x = 0; 
+      e11.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC11 == true){
+      eMove11 = true; 
+      }
+      canHurt = true; 
     }
 
     if(eMove12 == true ){
@@ -957,9 +1196,19 @@ function draw() {
           }else{
             e12.mirror.x = false;
           }
-
+      
     }
-
+    if (menuCheck % 2 != 0){
+      eMove12 = false; 
+      e12.vel.x = 0; 
+      e12.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC12 == true){
+      eMove12 = true; 
+      }
+      canHurt = true; 
+    }
     if(eMove13 == true ){
      
       e13.moveTowards(player);  //ENEMY NUMBER 4
@@ -973,9 +1222,19 @@ function draw() {
           }else{
             e13.mirror.x = false;
           }
-
+      
     }
-
+    if (menuCheck % 2 != 0){
+      eMove13 = false; 
+      e13.vel.x = 0; 
+      e13.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC13 == true){
+      eMove13 = true; 
+      }
+      canHurt = true; 
+    }
     if(eMove14 == true ){
       
       e14.moveTowards(player);  //ENEMY NUMBER 4
@@ -989,9 +1248,19 @@ function draw() {
           }else{
             e14.mirror.x = false;
           }
-
+     
     }
-
+    if (menuCheck % 2 != 0){
+      eMove14 = false; 
+      e14.vel.x = 0; 
+      e14.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC14 == true){
+      eMove14 = true; 
+      }
+      canHurt = true; 
+    }
  /*   if(eMove15 == true ){
       
       e15.moveTowards(player);  //ENEMY NUMBER 4
@@ -1022,9 +1291,19 @@ function draw() {
           }else{
             e16.mirror.x = false;
           }
-
+     
     }
-
+    if (menuCheck % 2 != 0){
+      eMove16 = false; 
+      e16.vel.x = 0; 
+      e16.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC16 == true){
+      eMove16 = true; 
+      }
+      canHurt = true; 
+    }
    /* if(eMove17 == true ){
  
       e17.moveTowards(player);  //ENEMY NUMBER 4
@@ -1070,9 +1349,20 @@ function draw() {
           }else{
             e19.mirror.x = false;
           }
-
+  
     }
-
+    if (menuCheck % 2 != 0){
+      eMove19 = false; 
+      e19.vel.x = 0; 
+      e19.vel.y = 0;
+      canHurt = false; 
+    } else {
+      if(eC19 == true){
+      eMove19 = true; 
+      }
+      canHurt = true; 
+    }
+/*
     if(eMove20 == true ){
       
       e20.moveTowards(player);  //ENEMY NUMBER 4
@@ -1086,73 +1376,99 @@ function draw() {
           }else{
             e20.mirror.x = false;
           }
-
+     
     }
+    if (menuCheck % 2 != 0){
+      eMove20 = false; 
+      e20.vel.x = 0; 
+      e20.vel.x = 0;
+      canHurt = false; 
+    } else {
+      if(eC20 == true){
+      eMove20 = true; 
+      }
+      canHurt = true; 
+    }
+    */
 // Below is invisible triggers for enemies
     
-    if(player.overlapping(invis1)){
-      eMove = true; 
+    if(player.overlaps(invis1)){
+      eMove = true;
+      eC1 = true; 
       
     }
 
-     if(player.overlapping(invis2)){
+     if(player.overlaps(invis2)){
         eMove2 = true; 
+        eC2 = true; 
       }
 
-    if(player.overlapping(invis3)){
+    if(player.overlaps(invis3)){
       eMove3 = true; 
+       eC3 = true; 
     }
 
-    if(player.overlapping(invis4)){
+    if(player.overlaps(invis4)){
       eMove4 = true; 
+       eC4 = true; 
     }
 
-    if(player.overlapping(invis5)){
+    if(player.overlaps(invis5)){
       eMove5 = true; 
+       eC5 = true; 
     }
 
-    if(player.overlapping(invis6)){
+    if(player.overlaps(invis6)){
       eMove6 = true; 
+       eC6 = true; 
     }
 
   /*  if(player.overlapping(invis7)){
       eMove7 = true; 
     } */
 
-    if(player.overlapping(invis8)){
+    if(player.overlaps(invis8)){
       eMove8 = true; 
+       eC8 = true; 
     }
 
-    if(player.overlapping(invis9)){
+    if(player.overlaps(invis9)){
       eMove9 = true; 
+       eC9 = true; 
     }
 
-    if(player.overlapping(invis10)){
+    if(player.overlaps(invis10)){
       eMove10 = true; 
+       eC10 = true; 
     }
 
-    if(player.overlapping(invis11)){
+    if(player.overlaps(invis11)){
       eMove11 = true; 
+       eC11 = true; 
     }
 
-    if(player.overlapping(invis12)){
+    if(player.overlaps(invis12)){
       eMove12 = true; 
+       eC12 = true; 
     }
 
-    if(player.overlapping(invis13)){
+    if(player.overlaps(invis13)){
       eMove13 = true; 
+       eC13 = true; 
     }
 
-    if(player.overlapping(invis14)){
-      eMove14 = true; 
+    if(player.overlaps(invis14)){
+      eMove14 = true;
+       eC14 = true; 
     }
 
   /*  if(player.overlapping(invis15)){
       eMove15 = true; 
     }*/
     
-    if(player.overlapping(invis16)){
+    if(player.overlaps(invis16)){
       eMove16 = true; 
+       eC16 = true; 
     }
     
    /* if(player.overlapping(invis17)){
@@ -1163,12 +1479,14 @@ function draw() {
       eMove18 = true; 
     }
     */
-    if(player.overlapping(invis19)){
+    if(player.overlaps(invis19)){
       eMove19 = true; 
+       eC19 = true; 
     }
     
-    if(player.overlapping(invis20)){
+    if(player.overlaps(invis20)){
       eMove20 = true; 
+       eC20 = true; 
     }
     
 
@@ -1351,7 +1669,7 @@ function draw() {
       e19.remove();
       eh19.remove();
     }
-
+/*
     if (bullets.overlaps(e20)){
      eh20.w -= 12.5;
     }
@@ -1360,10 +1678,11 @@ function draw() {
       e20.remove();
       eh20.remove();
     }
-
+*/
     //DEATH CARD
     if(totHealth == 0){
       screen = 101;
+       deathCount++;
       enemies.remove(); 
 
     }
@@ -1372,7 +1691,7 @@ function draw() {
 
     
 
-    if((eh1.w<= 0) && (eh2.w <= 0)&&(eh3.w<= 0) &&(eh4.w<= 0) &&(eh5.w<= 0) &&(eh6.w<= 0)  &&(eh8.w<= 0) &&(eh9.w<= 0) &&(eh10.w<= 0) &&(eh11.w<= 0) &&(eh12.w<= 0) &&(eh13.w<= 0) &&(eh14.w<= 0) &&(eh16.w<= 0) &&(eh19.w<= 0) &&(eh20.w<= 0)){
+    if((eh1.w<= 0) && (eh2.w <= 0)&&(eh3.w<= 0) &&(eh4.w<= 0) &&(eh5.w<= 0) &&(eh6.w<= 0)  &&(eh8.w<= 0) &&(eh9.w<= 0) &&(eh10.w<= 0) &&(eh11.w<= 0) &&(eh12.w<= 0) &&(eh13.w<= 0) &&(eh14.w<= 0) &&(eh16.w<= 0) &&(eh19.w<= 0)){
       g1.image = glow2Img; 
     } 
    
@@ -1386,7 +1705,7 @@ function draw() {
     if(g1.image == glow2Img){
       if(player.collides(lvl1End))
         {
-          lvl1End.remove(); 
+          lvl1End.y = -1000; 
           platforms.removeAll(); 
           enemies.removeAll();
           corals.removeAll();
@@ -1395,7 +1714,9 @@ function draw() {
           enemyHealthBar.removeAll();
           rocks.removeAll();
           boundaries.removeAll();
-          g1.remove(); 
+  //        textBubbles.removeAll();
+          txt5.y = -1000;
+          g1.y=-1000; 
           screen = 25; 
           shopSND.stop(); 
            player.x = -1000;
@@ -1418,40 +1739,46 @@ function draw() {
   {
       storeOpen();
       mermaid1a();
-    if(!storeBack2)  {
-       storeBack2 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeBack2.layer = 10;
-     }
-    if(!storeFront2)  {
-       storeFront2 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeFront2.layer = 10;
-     }
-     
-    
-    if(kb.presses("n"))
+    storeBack2.y = height/2;
+    storeFront2.y = height/2;
+     kelpMermaid.y = (height/2)+40;
+    if(nextText.mouse.presses())
     {
-      screen = 251; 
+   //    kelpMermaid1.image = MerCal2Img;
+      if(kelpMermaid){
+        kelpMermaid.image = MerCal2Img;
+      }
+      screen = 251;
+      
+  
+     nextText.y = -1000;
+     // background() = red;
+
     }
   }
 
   if (screen == 251)
   {
     mermaid1b();
-    
+    kelpMermaid.y = (height/2)+40;
     
 
-    if (kb.presses('e'))
+    if(nextText1.mouse.presses())
     {
-      storeFront.y = -9000;
-      storeBack.y = -90000;
-      storeFront.layer = -1;
-      storeBack.layer = -1;
-      storeBack2.remove();
-      storeFront2.remove();
+     // storeFront.y = -9000;
+     // storeBack.y = -90000;
+     // storeFront.layer = -1;
+     // storeBack.layer = -1;
+    //  storeBack2.y = -9000;
+   //   storeFront2.y = -90000;
+    //  storeBack21.remove();
+    //  storeFront21.remove(); 
       corals.removeAll();
       textBubbles.removeAll();
-      kelpMermaid.remove();
+      //kelpMermaid1.remove();
       rocks.removeAll();
+      stores.removeAll(); 
+      nextText1.y = -1000;
       playLvl2();
       screen = 40;
     }
@@ -1462,16 +1789,22 @@ function draw() {
     background(backImg2);
     playerSetUp();
     SND1.stop(); 
+   
     
     opening.stop(); 
     lvl2Music(); 
-    if(lvl1End) {lvl1End.y= -1000;}
+    if(lvl1End) {
+    lvl1End.y = -1000;
+    }
    
     if(totHealth == 0){
+       deathCount3++;
       screen = 102;
       enemies.remove(); 
 
     }
+
+  
 
   //  nets.debug = mouse.pressing();
 
@@ -1481,43 +1814,147 @@ function draw() {
   // RADIO STUFF=================================  
     if (player.overlapping(invis3))
     {
-      i2 = true; 
-       txt3 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-      txt3.text = "Ugh, ghost gear. \nThese nets seem to have\n a mind of their own. \nPress 'SHIFT' to hide behind \nthe kelp and rocks. \n Don't get tangled. \n Press E to Continue";
-        txt3.textSize = 10;
-         canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
+       canMove = false;//MAKES IT SO PLAYER MUST WAIT FOR INSTRUCTIONS
+      
+       txt3.y = 200;
+      if(deathCount3 == 0){
+      txt3.text = "Welcome to my mojo dojo\ncasa kelp! Uh, these\nnets kinda have a mind\nof their own...Press\n 'SHIFT' to hide behind\nkelp and rocks. Don’t\nget caught!\n(Press E to Continue)";
+      }else if (deathCount3 == 1){
+         txt3.text = "Commercial fishing has\ncursed this realm once\nmore. Stay alert. If\nyou're not hiding some\nnets will chase you.\n(Press E to Continue)";
+      } else if (deathCount3 == 2){
+         txt3.text = "Don't fall here... you\nare much too important.\nAnd be aware that the\nmenu is unavailable when\nyou are being chased...\n (Press E to Continue)";
+      } else if (deathCount3 >= 3){
+         txt3.text = "Please.\nThe Kelp Mermaid needs\nyou.\n(Press E to Continue)";
+      }
+        txt3.textSize = 14.5;
+      
+
        player.vel.x = 0; 
        player.vel.y = 0; 
-        invis3.remove(); 
+       i2 = true; 
 
     } 
 
     if((canMove == false) && i2 == true )
     {
-    if(kb.presses("e"))
+      
+    if(kb.presses("e") && (menuCheck % 2 == 0) )
     {
+      txt3.y = -7200; 
+      invis3.remove();
 
+    
       canMove = true;
+      
     i2 = false; 
-      textBubbles.remove(); 
+       
     } 
     else
     {
+    //  canMenu = false; 
       canMove = false; 
     }
     }
     //END OF TEXT STUFF --------------------------------------
     // net stuff ===================  
 
+    if (menuCheck % 2 != 0){
+    n1.vel.y=0; 
+      n99.vel.y = 0; 
+  n2.vel.y = 0; 
+      n3.vel.y = 0;
+    
+      n5.vel.y = 0;
+      n6.vel.y=0;
+      n7.vel.y=0;
+      n8.vel.y=0;
+      n9.vel.y = 0; 
+      
+      
+    
+      canHurt = false; 
+    } else {
+
+   
+      if(nC1 == 0){
+        n1.vel.y = 5
+      }else if (nC1 == 1){
+      n1.vel.y = -5;
+      }
+
+      if(nC99 == 0){
+        n99.vel.y = 4.5;
+      }else if (nC99 == 1){
+      n99.vel.y = -4.5;
+      }
+
+      if(nC2 == 0){
+        n2.vel.x = 6;
+      }else if (nC2 == 1){
+      n2.vel.x = -6;
+      }
+
+      if(nC3 == 0){
+        n3.vel.y = 5;
+      }else if (nC3 == 1){
+      n3.vel.y = -5;
+      }
+
+      if(nC4 == 0){
+        n4.vel.x = 8;
+      }else if (nC4 == 1){
+      n4.vel.x = -3;
+      }
+
+      if(nC5 == 0){
+        n5.vel.y = 8;
+      }else if (nC5 == 1){
+      n5.vel.y = -8;
+      }
+
+      if(nC6 == 0){
+        n6.vel.y = 8;
+      }else if (nC6== 1){
+      n6.vel.y = -3;
+      }
+
+      if(nC7 == 0){
+        n7.vel.y = 9.1;
+      }else if (nC7== 1){
+      n7.vel.y = -9.1;
+      }
+
+      if(nC8 == 0){
+        n8.vel.y = 3;
+      }else if (nC8== 1){
+      n8.vel.y = -3;
+      }
+
+      if(nC9 == 0){
+        n9.vel.y= 9.1;
+      }else if (nC9== 1){
+      n9.vel.y = -9.1;
+      }
+      if(!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))))
+        {
+      canHurt = true;
+        }
+    }
+
+
     // auto move net
+
   if (n1.y < -100) 
   {
+      nC1 = 0;
       n1.vel.y = 5;
       n1.image = netImg1;
     } else if (n1.y > 360) {
+      nC1 = 1;
       n1.vel.y = -5;
     n1.image = netImg2;
     }
+
 
     if(n1.overlapping(player))
     {
@@ -1526,33 +1963,41 @@ function draw() {
       }
     }
 
+
     
 
     if (n99.y < -100) 
       {
+        nC99 = 0;
           n99.vel.y = 4.5;
           n99.image = netImg1;
         } else if (n99.y > 360) {
+        nC99 = 1; 
           n99.vel.y = -4.5;
         n99.image = netImg2;
         }
 
+      
         if(n99.overlapping(player))
         {
           if(canHurt == true){
-          player.vel.y = n1.vel.y; 
+          player.vel.y = n99.vel.y; 
           }
         }
-
+      
     //async net
-    if (n2.x < 2000) 
+  
+    if (n2.x < 2500) 
     {
+      nC2 = 0; 
         n2.vel.x = 6;
         n2.image = netImg1;
-      } else if (n2.x > 2700) {
+      } else if (n2.x > 3100) {
+      nC2 = 1; 
         n2.vel.x = -6;
       }
-
+  
+if(canHurt == true){
       if(n2.overlapping(player))
       {
         if(canHurt == true)
@@ -1560,35 +2005,46 @@ function draw() {
         player.vel.y = n2.vel.y; 
         }
       }
-
-      if(player.x > 2000 && player.x < 2700)
+}
+      if((player.x >= 2500) && player.x <= 3100)
       {
-        if(!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))))
+        canMenu = false;
+        if(!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))) )
         {
+       
+           
         n2.vel.x = 0;
         n2.vel.y = 7; 
         n2.image = netImg2; 
         n2.moveTo(player);
          netCount1 = 1; 
-        }
+           canMenu = false;
+        } 
+       
+      }else{
+        canMenu = true; 
       }
-     if((n2.y > 360 && (!player.overlapping(n2))) || ((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))) && (n2.y > 150))
+     if(((n2.y > 360 && (!player.overlapping(n2))) || ((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))) && (n2.y > 150)))
      {
+      
       net2(); 
      } 
 
-    
+   
      if (n3.y < -100) 
         {
+          nC3 = 0; 
           n3.vel.y = 5;
           n3.image = netImg1;
         } 
      else if (n3.y > 360) 
        {
+         nC3 = 1; 
           n3.vel.y = -5;
         n3.image = netImg2;
         }
-
+    
+if(canHurt == true){
         if(n3.overlapping(player))
         {
           if(canHurt == true)
@@ -1596,15 +2052,19 @@ function draw() {
           player.vel.y = n3.vel.y; 
           }
         }
+}
     
-    if (n4.x < 3200) 
+    if (n4.x < 3700) 
       {
+        nC4 = 0; 
           n4.vel.x = 8;
           n4.image = netImg1;
-        } else if (n4.x > 3500) {
+        } else if (n4.x > 4200) {
+        nC4 = 1; 
           n4.vel.x = -3;
         }
-
+    
+if(canHurt == true){
         if(n4.overlapping(player))
         {
           if(canHurt == true)
@@ -1612,106 +2072,135 @@ function draw() {
           player.vel.y = n4.vel.y; 
           }
         }
+}
 
-        if(player.x > 3200 && player.x < 3500)
+        if((player.x >= 3700) && player.x <= 4200)
         {
-          if(!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))))
+          canMenu = false;
+          if((!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks)))))
           {
+       
           n4.vel.x = 0;
           n4.vel.y = 7; 
           n4.image = netImg2; 
           n4.moveTo(player);
            netCount1 = 1; 
+      
           }
+          
+        }else{
+          canMenu = true; 
         }
        if((n4.y > 360 && (!player.overlapping(n4))) || ((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))) && (n4.y > 150))
        {
+  
         net4(); 
        } 
     
 
      if (n5.y < -100) 
       {
+        nC5 = 0; 
           n5.vel.y = 8;
           n5.image = netImg1;
         } else if (n5.y > 360) {
+        nC5 = 1; 
           n5.vel.y = -8;
         n5.image = netImg2;
         }
 
+if(canHurt == true){
         if(n5.overlapping(player))
         {
           if(canHurt == true){
           player.vel.y = n5.vel.y; 
           }
         }
+}
 
     if (n6.y < -100) 
       {
+        nC6 = 0; 
           n6.vel.y = 8;
           n6.image = netImg1;
         } else if (n6.y > 360) {
           n6.vel.y = -3;
+        nC6 = 1; 
         n6.image = netImg2;
         }
 
+if(canHurt == true){
         if(n6.overlapping(player))
         {
           if(canHurt == true){
           player.vel.y = n6.vel.y; 
           }
         }
+}
+
 
     if (n7.y < -100) 
       {
+        nC7 = 0; 
           n7.vel.y = 9.1;
           n7.image = netImg1;
         } else if (n7.y > 360) {
+        nC7 = 1; 
           n7.vel.y = -9.1;
         n7.image = netImg2;
         }
 
+if(canHurt == true){
         if(n7.overlapping(player))
         {
           if(canHurt == true){
           player.vel.y = n7.vel.y; 
           }
         }
+}
 
     if (n8.y < -100) 
       {
+        nC8 = 0; 
           n8.vel.y = 3;
           n8.image = netImg1;
         } else if (n8.y > 360) {
+        nC8 = 1; 
           n8.vel.y = -3;
         n8.image = netImg2;
         }
-
+if(canHurt == true){
         if(n8.overlapping(player))
         {
           if(canHurt == true){
           player.vel.y = n8.vel.y; 
           }
         }
+}
 
     if (n9.y < -100) 
       {
+        nC9 = 0; 
           n9.vel.y = 9.1;
           n9.image = netImg1;
         } else if (n9.y > 360) {
+        nC9 = 1; 
           n9.vel.y = -9.1;
         n9.image = netImg2;
         }
 
+if(canHurt == true){
         if(n9.overlapping(player))
         {
           if(canHurt == true){
           player.vel.y = n9.vel.y; 
           }
         }
+}
 
-      if((player.x >= 5300) && player.x <= 6200)
+      if((player.x >= 6000) && player.x <= 6900)
       {
+        canMenu = false; 
         n10.x = player.x - 50; 
           if(!((kb.pressing('shift')) && ((player.overlapping(kelps)) || player.overlapping(rocks))))
           {
@@ -1720,8 +2209,15 @@ function draw() {
           else
          
           {
+            
              n10.x = player.x - 50; 
           } 
+      } else if ((player.x >= 2500) && player.x <= 3100){
+        canMenu = false; 
+      } else if ((player.x >= 3700) && player.x <= 4200){
+        canMenu = false; 
+      } else {
+        canMenu = true; 
       }
 
     
@@ -1734,15 +2230,17 @@ function draw() {
     // end level ==========================
     if(player.collides(lvl2End))
     {
-        lvl2End.remove();
+        lvl2End.y = -2000;
       platforms.removeAll(); 
       kelps.removeAll();
       lamps.removeAll();
       nets.removeAll(); 
+   //   textBubbles.removeAll(); 
       rocks.removeAll(); 
       kelpBack1.remove(); 
       boundaries.removeAll();
-      g1.remove();
+      g1.y = -2000;
+      txt3.y = -1000;
       lvl2SND.stop();
       player.y = 350;
       player.x = 20; 
@@ -1755,45 +2253,69 @@ function draw() {
     if(screen == 250)// sydney 
     {
       background(storeBackImg);
-     if(!storeBack3)  {
-       storeBack3 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeBack3.layer = 10;
-     }
-      if(!storeFront3)  {
-         storeFront3 = new Sprite(storeBackImg, camera.x, height/2, "n");
-         storeFront3.layer = 10;
-       }
-      mermaid2a(); 
-      
+  
+   mermaid2a(); 
+      storeBack3.y = height/2;
+      storeFront3.y = height/2;
+    //   coralMermaid.y = (height/2)+40;
       
       storeOpen();
-      storeBack.layer = 19;
-      storeFront.layer = 30;
+    /*  
+      storeBack.layer = coralMermaid.layer -1;
+      storeFront.layer = coralMermaid.layer +1;
       storeFront.y = height/2;
       storeBack.y = height/2;
-    if(kb.presses("n"))
+      storeBack3.y = height/2;
+      storeFront3.y = height/2;
+      
+      if (storeFront.layer < coralMermaid.layer)
       {
+        storeFront.layer = coralMermaid.layer +1;
+      }
+      if (storeBack.layer > coralMermaid.layer)
+      {
+        storeBack.layer = coralMermaid.layer -1;
+      }
+      */
+      if (storeFront3.layer < coralMermaid.layer +1)
+      {
+        storeFront3.layer = coralMermaid.layer +1;
+      }
+      if (storeBack3.layer > coralMermaid.layer )
+      {
+        storeBack3.layer = coralMermaid.layer -1;
+      }
+      
+    if(nextText2.mouse.presses())
+      {
+       
+          if(coralMermaid){
+            coralMermaid.image = MerSyd2Img;
+          }
         screen = 255; 
+        nextText2.y = -2000;
       } 
     } 
     if( screen == 255)
     {
       mermaid2b();
-      
-      lvl2End.remove(); 
+      // coralMermaid.y = (height/2)+40;
+    //  lvl2End.remove(); 
 
-      if(kb.presses("e"))
+      if(nextText3.mouse.presses())
       {
         player.y = 350;
           player.x = 20;
-         storeFront.x = -9000000;
-         storeBack.x = -900000;
-        storeBack3.remove();
-        storeFront3.remove();
+      //   storeFront.y = -9000000;
+      //   storeBack.y = -900000;
+     //  storeBack3.y = -90000;
+      //  storeFront3.y = -90000;
+        stores.removeAll();
         corals.removeAll();
         rocks.removeAll();
         textBubbles.removeAll();
          coralMermaid.remove();
+        nextText3.y = -2000;
           playLvl3();
         screen = 50;
       }
@@ -1811,6 +2333,7 @@ function draw() {
     if(lvl2End) {lvl2End.y= -1000;}
     
     if(totHealth == 0){
+       deathCount4++;
       screen = 103;
 
     }
@@ -1825,27 +2348,72 @@ function draw() {
     {
       i2 = true;
       canMove = false;
-      txt5 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-      txt5.text = "... Make sure to use your \nflashlight. Strange things \nhide in the dark. \nThey're attracted to light. \nPress E to Continue";
-
-        txt5.textSize = 10;
+    //  canMenu = false; 
+   //   canMenu = false; 
+   
+      if(deathCount4 == 0){
+      txt6.text = "Be careful o' the things\nthat there 'ide in the\ndark- they be attracted\nto light. Please come\nsoon- it’s too dark 'ere.\n(Press E to Continue)";
+      }else if (deathCount4 == 1){
+        txt6.text = "Them poor creatures don’t\nknow they’re 'urtin' ye.\nTry shootin' a single\nshot to scare them away.\n(Press E to Continue)";
+      } else if (deathCount4 == 2){
+        txt6.text = "Watch out, there’s way\nmore creatures nearrr\nthe lamp at the end.\nAfter all, it be a giant\nball o' light.\n(Press E to Continue)";
+      } else if (deathCount4 >= 3){
+        txt6.text = "It’s so, SO dark. You’re\nme only chance. Please,\nremember what ye came\nfer!\n(Press E to Continue)";
+      }
+      txt6.y = 200; 
+        txt6.textSize = 15;
+      txt6.layer =entrance.layer+1;
       player.vel.x = 0; 
        player.vel.y = 0; 
-      invis5.remove(); 
+     
     }
     
     if((canMove == false) && i2 == true )
       {
-      if(kb.presses("e"))
+      if(kb.presses("e")  && (menuCheck % 2 == 0))
       {
+        txt6.y = -7200;
+         invis5.remove(); 
         canMove = true;
+      //  canMenu = true; 
         i2 = false; 
-        textBubbles.remove(); 
+        
       } 
      else
         canMove = false;
-        
+     //  canMenu = false; 
       }
+
+    if (menuCheck % 2 != 0){
+      canHurt = false; 
+      h1.speed = 0;
+       h2.speed = 0; 
+       h3.speed = 0; 
+       h4.speed = 0; 
+       h5.speed = 0; 
+       h6.speed = 0; 
+       h7.speed = 0; 
+       h8.speed = 0; 
+       h9.speed = 0; 
+       h10.speed = 0; 
+       h11.speed = 0; 
+       h12.speed = 0; 
+       h13.speed = 0; 
+       h14.speed = 0; 
+       h15.speed = 0; 
+       h16.speed = 0;
+      h17.speed = 0; 
+       h18.speed = 0;
+      h100.speed = 0; 
+       h200.speed = 0; 
+       h300.speed = 0; 
+       h400.speed = 0; 
+
+    } else{
+    
+      
+      canHurt = true; 
+    }
 
     light.x = player.x; 
     light.y = player.y; 
@@ -1898,95 +2466,256 @@ function draw() {
     }
 
     
-   if(light.overlapping(h1) || g3.overlapping(h1)){
+   if(light.overlapping(h1) || g3.overlapping(h1) && (menuCheck % 2 == 0)){
+     H1H = 0; 
+     if(menuCheck % 2 == 0){
       h1.moveTo(player);
      h1.speed = 1; 
+     }
       h1.image = hiderImg; 
+    }else{
+      H1H = 1; 
+     h1.speed = 0; 
     }
 
-    if(light.overlapping(h2) || g3.overlapping(h2)){
+    if(light.overlapping(h2) || g3.overlapping(h2)&& (menuCheck % 2 == 0)){
+      H2H = 0; 
+       if(menuCheck % 2 == 0){
       h2.moveTo(player);
        h2.speed = 1; 
+       }
       h2.image = hiderImg; 
+    }else{
+      H2H = 1; 
+      h2.speed = 0; 
     }
 
-    if(light.overlapping(h3) || g3.overlapping(h3)){
+    if(light.overlapping(h3) || g3.overlapping(h3)&& (menuCheck % 2 == 0)){
+      H3H = 0; 
+       if(menuCheck % 2 == 0){
       h3.moveTo(player);
        h3.speed = 1; 
+       }
       h3.image = hiderImg; 
+    }else{
+      H3H = 1; 
     }
 
-    if(light.overlapping(h4) || g3.overlapping(h4)){
+    if(light.overlapping(h4) || g3.overlapping(h4)&& (menuCheck % 2 == 0)){
+      H4H = 0; 
+       if(menuCheck % 2 == 0){
       h4.moveTo(player);
-      h4.image = hiderImg; 
+    
        h4.speed = 1; 
+       }
+      h4.image = hiderImg; 
+    }else{
+      H4H = 1; 
     }
 
     if(light.overlapping(h5) || g3.overlapping(h5)){
+      H5H = 0; 
+       if(menuCheck % 2 == 0){
       h5.moveTo(player);
        h5.speed = 1; 
+       }
       h5.image = hiderImg; 
+    }else{
+      H5H = 1; 
     }
 
     if(light.overlapping(h6) || g3.overlapping(h6)){
+      H6H = 0; 
+       if(menuCheck % 2 == 0){
       h6.moveTo(player);
-      h6.image = hiderImg; 
+    
        h6.speed = 1; 
+       }
+      h6.image = hiderImg; 
+    }else{
+      H6H = 1; 
     }
 
     if(light.overlapping(h7) || g3.overlapping(h7)){
+      H7H = 0; 
+       if(menuCheck % 2 == 0){
       h7.moveTo(player);
-      h7.image = hiderImg; 
+   
        h7.speed = 1; 
+       }
+       h7.image = hiderImg; 
+    }else{
+      H7H = 1; 
     }
 
     if(light.overlapping(h8) || g3.overlapping(h8)){
+      H8H = 0; 
+       if(menuCheck % 2 == 0){
       h8.moveTo(player);
-      h8.image = hiderImg; 
+   
        h8.speed = 1; 
+       }
+       h8.image = hiderImg; 
+    }else{
+      H8H = 1; 
     }
     if(light.overlapping(h9) || g3.overlapping(h9)){
+      H9H = 0; 
+       if(menuCheck % 2 == 0){
       h9.moveTo(player);
-      h9.image = hiderImg; 
+    
        h9.speed = 1; 
+       }
+      h9.image = hiderImg; 
+    }else{
+      H9H = 1; 
     }
 
     if(light.overlapping(h10) || g3.overlapping(h10)){
+      H10H = 0; 
+       if(menuCheck % 2 == 0){
       h10.moveTo(player);
-      h10.image = hiderImg; 
+      
        h10.speed = 1; 
+       }
+      h10.image = hiderImg; 
+    }else{
+      H10H = 1; 
     }
 
     if(light.overlapping(h11) || g3.overlapping(h11)){
+      H11H = 0; 
+       if(menuCheck % 2 == 0){
       h11.moveTo(player);
-      h11.image = hiderImg; 
+  
        h11.speed = 1; 
+       }
+      h11.image = hiderImg; 
+      h11.scale = 1.2; 
+    }else{
+      H11H = 1; 
     }
     if(light.overlapping(h12) || g3.overlapping(h12)){
+       H12H = 0; 
+       if(menuCheck % 2 == 0){
       h12.moveTo(player);
-      h12.image = hiderImg; 
-       h12.speed = 1; 
+     
+       h12.speed = 1;
+       }
+       h12.image = hiderImg; 
+      h12.scale = 1.5; 
+    }else{
+      H12H = 1; 
     }
     if(light.overlapping(h13) || g3.overlapping(h13)){
+       H13H = 0; 
+       if(menuCheck % 2 == 0){
       h13.moveTo(player);
-      h13.image = hiderImg; 
+   
        h13.speed = 1; 
+       }
+       h13.image = hiderImg; 
+      h13.scale = 0.7; 
+    }else{
+      H13H = 1; 
     }
     if(light.overlapping(h14) || g3.overlapping(h14)){
+       H14H = 0; 
+       if(menuCheck % 2 == 0){
       h14.moveTo(player);
-      h14.image = hiderImg; 
+     
        h14.speed = 1; 
+       }
+       h14.image = hiderImg; 
+      h14.scale = 1.7; 
+    }else{
+      H14H = 1; 
     }
     if(light.overlapping(h15) || g3.overlapping(h15)){
+       H15H = 0; 
+       if(menuCheck % 2 == 0){
       h15.moveTo(player);
-      h15.image = hiderImg; 
+      
        h15.speed = 1; 
+       }
+       h15.image = hiderImg;
+      h15.scale = 1.3; 
+    }else{
+      H15H = 1; 
     }
     if(light.overlapping(h16) || g3.overlapping(h16)){
+      H16H = 0; 
+       if(menuCheck % 2 == 0){
       h16.moveTo(player);
-      h16.image = hiderImg; 
+
        h16.speed = 1; 
+       }
+      h16.image = hiderImg; 
+      h16.scale = 1.5; 
+    } else{
+      H16H = 1; 
     }
+
+    if(light.overlapping(h17) || g3.overlapping(h17)){
+    
+       if(menuCheck % 2 == 0){
+      h17.moveTo(player);
+
+       h17.speed = 1; 
+       }
+      h17.image = hiderImg; 
+      h17.scale = 1.75; 
+    } 
+
+    if(light.overlapping(h18) || g3.overlapping(h18)){
+     
+       if(menuCheck % 2 == 0){
+      h18.moveTo(player);
+
+       h18.speed = 1; 
+       }
+      h18.image = hiderImg; 
+      h18.scale = 1.6; 
+    } 
+    if(light.overlapping(h100) || g3.overlapping(h100)){
+      
+       if(menuCheck % 2 == 0){
+      h100.moveTo(player);
+
+       h100.speed = 1; 
+       }
+      h100.image = hiderImg; 
+    }
+
+    if(light.overlapping(h200) || g3.overlapping(h200)){
+     
+       if(menuCheck % 2 == 0){
+      h200.moveTo(player);
+
+       h200.speed = 1; 
+       }
+      h200.image = hiderImg; 
+    }
+
+    if(light.overlapping(h300) || g3.overlapping(h300)){
+ 
+       if(menuCheck % 2 == 0){
+      h300.moveTo(player);
+
+       h300.speed = 1; 
+       }
+      h300.image = hiderImg; 
+    } 
+
+    if(light.overlapping(h400) || g3.overlapping(h400)){
+      
+       if(menuCheck % 2 == 0){
+      h400.moveTo(player);
+
+       h400.speed = 1; 
+       }
+      h400.image = hiderImg; 
+    } 
 
     if (bullets.overlaps(h1)){
      
@@ -2059,6 +2788,39 @@ function draw() {
   
     }
 
+    if (bullets.overlaps(h17)){
+
+      h17.remove();
+
+    }
+
+    if (bullets.overlaps(h18)){
+
+      h18.remove();
+
+    }
+
+    if (bullets.overlaps(h100)){
+
+      h100.remove();
+
+    }
+    if (bullets.overlaps(h200)){
+
+      h200.remove();
+
+    }
+    if (bullets.overlaps(h300)){
+
+      h300.remove();
+
+    }
+    if (bullets.overlaps(h400)){
+
+      h400.remove();
+
+    }
+
 
 
  
@@ -2068,18 +2830,22 @@ function draw() {
 
     
     if(player.collides(lvl3End)){
-        lvl3End.remove();
-      platforms.remove(); 
-      enemies.remove();
-      lamps.remove();
-      g1.remove();
+        lvl3End.y = -1000;
+      txt6.y = -1000;
+    //  textBubbles.removeAll(); 
+      platforms.removeAll(); 
+      enemies.removeAll();
+      lamps.removeAll();
+      g1.y = -2000;
       g3.y = -2000; 
       light.y = -2000; 
-      hiders.remove();
+      hiders.removeAll();
+    
       entrance.remove();
       lvl3SND.stop();
       player.y = 350;
-      player.x = 20; 
+      player.x = 20;
+    
       //playLvl4();
       screen = 27;
   }
@@ -2087,27 +2853,42 @@ function draw() {
   
   if(screen == 27)// natalia 
   {
-    storeOpen();
-    mermaid3a(); 
-    if(!storeBack4)  {
-       storeBack4 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeBack4.layer = 10;
-     }
-    if(!storeFront4)  {
-       storeFront4 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeFront4.layer = 10;
-     }
+  storeOpen();
+//    mermaid3a();
+    cafeMusic(); 
+    mermaid3a()
+    
+    storeFront4.y = height/2; 
+    storeBack4.y = height/2;
+    shipMermaid.y = height/2 + 50;
+    
+   
+    
+  
+    
+  
+    
+    
+
    
   
-    storeFront.y = height/2;
-    storeBack.y = height/2;
-    storeBack.x = camera.x;
-    storeFront.x = camera.x;
-    storeFront.layer  = 30;
-    storeBack.layer = 19;
-    if(kb.presses("n"))
+/*
+     if (storeBack4.layer > shipMermaid.layer)
+     {
+       storeBack.layer = shipMermaid.layer -1;
+     }
+    
+    if (storeFront4.layer < shipMermaid.layer)
+    {
+      storeFront4.layer = shipMermaid.layer +1;
+    }
+  */ 
+    
+    if(nextText4.mouse.presses())
     {
       screen = 420; 
+      nextText4.y = -2000;
+    
     } 
 
   } 
@@ -2115,41 +2896,91 @@ function draw() {
   if (screen == 420)
   {
     mermaid3b();
+    shipMermaid.image = MerNat2Img;
+   
 
-    if (kb.presses('e'))
+    if (nextText5.mouse.presses())
     {
+      
+      
+      
+     // storeFront.y = -9000;
+     // storeBack.y = -90000;
+      //storeFront.layer = -1;
+      //storeBack.layer = -1;
       player.y = 350;
       player.x = 20;
-      
-      storeFront.y = -9000;
-      storeBack.y = -90000;
-      storeFront.layer = -1;
-      storeBack.layer = -1;
-      storeBack4.remove(); 
-      storeFront4.remove();
+    // storeBack4.y = -90000; 
+    // storeFront4.y = -90000;
+     // storeFront4.x = -9000;
+     // storeBack4.x = -9000;
+      stores.removeAll();
       corals.removeAll();
       rocks.removeAll();
+      storeBack4.remove();
+      storeFront4.remove();
       textBubbles.removeAll();
       shipMermaid.remove();
-      playLvl4();
+      nextText5.y= -2000;
+      playLvl4(); 
+   //   playLvl4();
+      
       screen = 60;
     }
   }
   
+if (screen == 60906)
+{
+  background(0,50,0);
+}
+ 
  
 
   if (screen == 60){ //lvl 4: whale fall // falling marine snow 
-    background(backImg4);
+
+ //   playLvl4(); 
+    canMove = true;
+  //  player.layer = 30000;
     playerSetUp();
+    
     lvl4Music();
     deepMusic(); 
+  background(backImg4);
+
     
+      //DASH FUNCTION AGAIN (FOR IF U SKIP DIRECTLY TO THIS LEVEL)
+     if(canMove == true){
+      if (kb.presses('enter')) {
+        if(kb.pressing('w') || ( kb.pressing('s'))){
+          player.vel.y *= 10;
+        //  player.bearing = -90;
+       //   player.applyForce(60);
+        }
+        else if(kb.presses('d') || ( kb.pressing('a'))){
+        player.vel.x *= 10;
+          //player.bearing = 0;
+        //  player.applyForce(60);
+        }
+        else if (player.mirror.x == true){
+            player.vel.x += 76;
+        } else if (player.mirror.x == false){
+          player.vel.x -= 76;
+        }
+      }
+     }
+      // END  of DASH
+    if (menuCheck % 2 != 0){
+      canHurt = false; 
+    } else{
+      canHurt = true; 
+    }
    
     SND1.stop(); 
    if(lvl3End) {lvl3End.y= -1000;}
 
 
     if(totHealth <= 0){
+       deathCount5++;
       screen = 104;
       enemies.remove(); 
     }
@@ -2159,43 +2990,48 @@ eMove = false;
       {
         i2 = true;
         canMove = false;
-        txt6 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-        txt6.text = "bzzt... A dead whale is falling\n all around you.\n Don't get hit by the whale bits!\n Press ENTER to dash around them\n Press E to Continue.";
-          txt6.textSize = 10;
+     //   canMenu = false; 
+       
+        if(deathCount5 == 0){
+        txt7.text = "This place is desolate.\nA whale has died here,\nand it’s corpse falls\nlike sand. A graveyard\n for many, then.\nPress ENTER to dash.\n(Press E to Continue)";
+        }else if (deathCount5 == 1){
+          txt7.text = "I think hiding behind\nthe rocks might help you.\nOr try shooting the\ndebris. Stay safe out there.\n(Press E to Continue)";
+        }else if(deathCount5 == 2){
+          txt7.text = "This is as far as anyone\nhas gotten. You cannot\nfall here as well. I…\nWe can't lose you.\n(Press E to Continue)";
+        } else if (deathCount5 >= 3){
+          txt7.text = "\n\n...\n\n(Press E to Continue)";
+        }
+          txt7.textSize = 15;
+        txt7.y = 200; 
         player.vel.x = 0; 
          player.vel.y = 0; 
-        invis6.remove(); 
+       
       }
 
       if((canMove == false) && i2 == true )
         {
-        if(kb.presses("e"))
+        if(kb.presses("e")  && (menuCheck % 2 == 0))
         {
           canMove = true;
+       //   canMenu = true; 
           i2 = false; 
-          textBubbles.remove(); 
+           invis6.remove(); 
+          txt7.y = -7200; 
         } 
        else
           canMove = false;
+      //   canMenu = false; 
 
         }
-    if (kb.presses('enter')) {
-       /* if(kb.pressing('w') || ( kb.pressing('s'))){
-          player.vel.y *= 10;
-        }
-        else */if( kb.pressing('a') || ( kb.pressing('d'))){
-        player.vel.x *= 10;
-        }
-       else{
-       player.vel.x += 76;
-        }
-    }
+
+
     
 
     if((player.overlaps(invis06)))
       {
         eMove21 = true; 
         eMove2 = true; 
+        weC1 = true; 
 
       }
      
@@ -2252,66 +3088,83 @@ eMove = false;
       }
     }
 
+    if (menuCheck % 2 != 0){
+      eMove21 = false;
+      eMove2 = false; 
+      e21.vel.x = 0; 
+      e22.vel.x = 0;
+      e21.vel.y = 0;
+      e22.vel.y = 0; 
+      canHurt = false; 
+    } else {
+      if(weC1 == true){
+      eMove21 = true;
+        eMove2 = true; 
+      }
+      canHurt = true; 
+    }
     
-  if(d1.overlapping(player)){
+  if(d1.overlapping(player) || bullets.overlaps(d1) && canHurt == true){
     d1.y = 0; 
   }
-    if(d2.overlapping(player)){
+    if(d2.overlapping(player)  || bullets.overlaps(d2)&&canHurt == true){
       d2.y = 0; 
     }
-    if(d3.overlapping(player)){
+    if(d3.overlapping(player)  || bullets.overlaps(d3)&&canHurt == true){
       d3.y = 0; 
+    
     }
-    if(d4.overlapping(player)){
+    if(d4.overlapping(player)  || bullets.overlaps(d4)&& canHurt == true){
       d4.y = 0; 
     }
     
-    if(d5.overlapping(player)){
+    if(d5.overlapping(player)  || bullets.overlaps(d5)&& canHurt == true){
       d5.y = 0; 
     }
-    if(d6.overlapping(player)){
+    if(d6.overlapping(player) || bullets.overlaps(d6) && canHurt == true){
       d6.y = 0; 
     }
-    if(d7.overlapping(player)){
+    if(d7.overlapping(player) || bullets.overlaps(d7) && canHurt == true){
       d7.y = 0; 
+  
     }
-    if(d8.overlapping(player)){
+    if(d8.overlapping(player)  || bullets.overlaps(d8)&& canHurt == true){
       d8.y = 0; 
     }
-    if(d9.overlapping(player)){
+    if(d9.overlapping(player)  || bullets.overlaps(d9)&& canHurt == true){
       d9.y = 0; 
-    } if(d10.overlapping(player)){
+    } if(d10.overlapping(player)  || bullets.overlaps(d10)&& canHurt == true){
       d10.y = 0; 
-    } if(d10.overlapping(player)){
+    } if(d10.overlapping(player) || bullets.overlaps(d11) && canHurt == true){
       d10.y = 0; 
     }
-    if(d11.overlapping(player)){
+    if(d11.overlapping(player) || bullets.overlaps(d11) && canHurt == true){
       d11.y = 0; 
     }
-    if(d12.overlapping(player)){
+    if(d12.overlapping(player)  || bullets.overlaps(d12)&&canHurt == true){
       d12.y = 0; 
     }
-    if(d13.overlapping(player)){
+    if(d13.overlapping(player) || bullets.overlaps(d13) && canHurt == true){
       d13.y = 0; 
     }
-    if(d14.overlapping(player)){
+    if(d14.overlapping(player)  || bullets.overlaps(d14)&& canHurt == true){
       d14.y = 0; 
     }
-    if(d15.overlapping(player)){
+    if(d15.overlapping(player)  || bullets.overlaps(d15)&& canHurt == true){
       d15.y = 0; 
     }
-    if(d16.overlapping(player)){
+    if(d16.overlapping(player)  || bullets.overlaps(d16)&& canHurt == true){
       d16.y = 0; 
-    } if(d17.overlapping(player)){
+    } if(d17.overlapping(player)  || bullets.overlaps(d17)&&canHurt == true){
       d17.y = 0; 
     }
-    if(d18.overlapping(player)){
+    if(d18.overlapping(player)  || bullets.overlaps(d18)&& canHurt == true){
       d18.y = 0; 
     }
-    if(d19.overlapping(player)){
+    if(d19.overlapping(player)  || bullets.overlaps(d19)&& canHurt == true){
       d19.y = 0; 
     }
-    if(d20.overlapping(player)){
+    if(d20.overlapping(player) || bullets.overlaps(d20) && canHurt == true){
       d20.y = 0; 
     }
     
@@ -2320,15 +3173,20 @@ eMove = false;
     if (d1.y >= 500 || d1.overlapping(player)) 
     {
       d1.y = 0;
-    d1.x = random(player.x - 750, player.x + 750);
-    d1.vel.y = random(1, 4);
-      d1.scale = random(0.5, 1); 
+    d1C = random(player.x - 550, player.x + 550);
+    d1V= random(1, 4);
+      d1S = random(0.5, 1); 
+       d1.scale = d1S;
+      d1.x = d1C;
+       d1.vel.y  = d1V;
+      
+      
     } 
 
     if (d2.y >= 500 || d2.overlapping(player)) 
     {
       d2.y = 0;
-    d2.x = random(player.x - 750, player.x + 750);
+    d2.x = random(player.x - 350, player.x + 350);
     d2.vel.y = random(1, 4);
       d2.scale = random(0.5, 1); 
     } 
@@ -2360,7 +3218,7 @@ eMove = false;
       if (d1.y >= 500 || d1.overlapping(player)) 
          {
            d1.y = 0;
-         d1.x = random(3000, 4200);
+         d1.x = random(3000, 3600);
          d1.vel.y = random(6, 9);
            d1.scale = random(0.5, 1); 
          } 
@@ -2368,22 +3226,15 @@ eMove = false;
          if (d2.y >= 500 || d2.overlapping(player)) 
          {
            d2.y = 0;
-         d2.x = random(3000, 4200);
+         d2.x = random(4000, 4200);
          d2.vel.y = random(6, 9);
            d2.scale = random(0.5, 1); 
          } 
-         if (d3.y >= 500||  d3.overlapping(player)) 
-         {
-           d3.y = 0;
-         d3.x = random(3000, 4200);
-         d3.vel.y = random(6, 9);
-           d3.scale = random(0.5, 1); 
 
-         } 
           if (d4.y >= 500||  d4.overlapping(player)) 
           {
             d4.y = 0;
-          d4.x = random(3000, 4200);
+          d4.x = random(3500, 3800);
           d4.vel.y = random(6, 9);
             d4.scale = random(0.5, 1); 
           } 
@@ -2392,7 +3243,7 @@ eMove = false;
           {
             d5.y = 0;
           d5.x = random(3000, 4200);
-          d5.vel.y = random(6, 9);
+          d5.vel.y = random(4, 7);
             d5.scale = random(0.5, 1); 
           } 
      
@@ -2419,14 +3270,7 @@ eMove = false;
         d3.vel.y = random(1, 4);
           d3.scale = random(0.5, 1); 
 
-        } 
-         if (d4.y >= 500||  d4.overlapping(player)) 
-         {
-           d4.y = 0;
-         d4.x = random(player.x - 750, player.x + 750);
-         d4.vel.y = random(1, 4);
-           d4.scale = random(0.5, 1); 
-         } 
+        }
 
          if (d5.y >= 500||  d5.overlapping(player)) 
          {
@@ -2443,7 +3287,7 @@ eMove = false;
      {
        d16.y = 0;
      d16.x = random(3000, 4200);
-     d16.vel.y = random(5, 8);
+     d16.vel.y = random(4, 7);
        d16.scale = random(0.5, 1); 
      } 
 
@@ -2451,14 +3295,14 @@ eMove = false;
      {
        d17.y = 0;
      d17.x = random(3000, 4200);
-     d17.vel.y = random(6, 8);
+     d17.vel.y = random(3, 5);
        d17.scale = random(0.5, 1); 
      } 
      if (d18.y >= 500||  d18.overlapping(player)) 
      {
        d18.y = 0;
      d18.x = random(3000, 4200);
-     d18.vel.y = random(5, 8);
+     d18.vel.y = random(4, 7);
        d18.scale = random(0.5, 1); 
 
      } 
@@ -2466,7 +3310,7 @@ eMove = false;
       {
         d19.y = 0;
       d19.x = random(3000, 4200);
-      d19.vel.y = random(5, 8);
+      d19.vel.y = random(4, 7);
         d19.scale = random(0.5, 1); 
       } 
 
@@ -2474,25 +3318,11 @@ eMove = false;
       {
         d20.y = 0;
       d20.x = random(3000, 4200);
-      d20.vel.y = random(5, 8);
+      d20.vel.y = random(4, 7);
         d20.scale = random(0.5, 1); 
       } 
 //
-    if (d6.y >= 500 || d6.overlapping(player)) 
-       {
-         d6.y = 0;
-       d6.x = random(1000, 1900);
-       d6.vel.y = random(5, 8);
-         d6.scale = random(0.5, 1); 
-       } 
-
-       if (d7.y >= 500 || d7.overlapping(player)) 
-       {
-         d7.y = 0;
-       d7.x = random(1000, 1900);
-       d7.vel.y = random(5, 8);
-         d7.scale = random(0.5, 1); 
-       } 
+   
        if (d8.y >= 500||  d8.overlapping(player)) 
        {
          d8.y = 0;
@@ -2522,57 +3352,115 @@ eMove = false;
        {
          d11.y = 0;
        d11.x = 5400;
-       d11.vel.y = 11;
-         d11.scale = random(0.5, 1); 
+       d11.vel.y = 4;
+         d11.scale = random(1.5, 2); 
        } 
 
        if (d12.y >= 500 || d12.overlapping(player)) 
        {
          d12.y = 0;
-       d12.x = 5500;
-       d12.vel.y = 8;
-         d12.scale = random(0.5, 1); 
+       d12.x = 5700;
+       d12.vel.y = 5;
+         d12.scale = random(1.2, 1.7); 
        } 
        if (d13.y >= 500||  d13.overlapping(player)) 
        {
          d13.y = 0;
-       d13.x = 5700;
-       d13.vel.y = 9;
-         d13.scale = random(0.5, 1); 
+       d13.x = 5850;
+       d13.vel.y = 3;
+         d13.scale = random(1.5, 2); 
        } 
         if (d14.y >= 500||  d14.overlapping(player)) 
         {
           d14.y = 0;
-        d14.x = 5900;
-        d14.vel.y = 4;
-          d14.scale = random(0.5, 1); 
+        d14.x = 6200;
+        d14.vel.y = 4.2;
+          d14.scale = random(1.5, 1.6); 
         } 
 
         if (d15.y >= 500||  d15.overlapping(player)) 
         {
           d15.y = 0;
-        d15.x = 6100;
-        d15.vel.y = 7;
-          d15.scale = random(0.5, 1); 
+        d15.x = 6400;
+        d15.vel.y = 5;
+          d15.scale = random(1.3, 2.2); 
         } 
+//
+     if (d3.y >= 500||  d3.overlapping(player)) 
+     {
+       d3.y = 0;
+     d3.x = random(6500, 7500);
+     d3.vel.y = random(6, 9);
+       d3.scale = random(1, 1.6); 
+       
 
+     } 
     
+
+     if (d4.y >= 500||  d4.overlapping(player)) 
+     {
+       d4.y = 0;
+     d4.x = random(6500,7500);
+     d4.vel.y = random(1, 4);
+       d4.scale = random(1.5, 2); 
+      
+     } 
+
+    if (d6.y >= 500 || d6.overlapping(player)) 
+     {
+       d6.y = 0;
+     d6.x = random(6500, 7500);
+     d6.vel.y = random(5, 8);
+       d6.scale = random(1.5, 1.7); 
+     
+     } 
+
+     if (d7.y >= 500 || d7.overlapping(player)) 
+     {
+       d7.y = 0;
+     d7.x = random(6500, 7500);
+     d7.vel.y = random(5, 8);
+       d7.scale = random(1.2, 1.5); 
+       
+     } 
+
+    if(d7.overlapping(player)){
+      totHealth = totHealth - 5; 
+      healthBar.w = healthBar.w - (10);
+    }
+    if(d6.overlapping(player)){
+      totHealth = totHealth - 5; 
+      healthBar.w = healthBar.w - (10);
+    }
+
+    if(d4.overlapping(player)){
+      totHealth = totHealth - 5; 
+      healthBar.w = healthBar.w - (10);
+    }
+
+    if(d3.overlapping(player)){
+      totHealth = totHealth - 5; 
+      healthBar.w = healthBar.w - (10);
+    }
+
+
     
 
 
     
     if(player.collides(lvl4End)){
-      lvl4End.remove();
+      lvl4End.y = -1000;
       enemies.removeAll();
+    //  textBubbles.removeAll(); 
       enemyHealthBar.removeAll(); 
       lamps.removeAll();
       debris.removeAll();
       rocks.removeAll();
-      g1.remove(); 
+      g1.y = -1000; 
       windySND.stop(); 
       deepSND.stop(); 
       boundaries.removeAll();
-
+      txt7.y = -1000; 
       player.y = 350;
       player.x = 20; 
       //playLvl5();
@@ -2584,44 +3472,53 @@ if (screen == 778)
 {
   storeOpen();
   mermaid4a();
-  if(!storeBack5)  {
-     storeBack5 = new Sprite(storeBackImg, camera.x, height/2, "n");
-     storeBack5.layer = 10;
-   }
-  if(!storeFront5)  {
-     storeFront5 = new Sprite(storeBackImg, camera.x, height/2, "n");
-     storeFront5.layer = 10;
-   }
-
   
-  storeFront.y = height/2;
-  storeBack.y = height/2;
-  storeFront.layer  = 30;
-  storeBack.layer = 19;
-  if (kb.presses('n'))
+  
+   
+   
+ // storeBack5.y = height/2;
+//  storeFront5.y = height/2;
+  
+ // storeFront.y = height/2;
+//  storeBack.y = height/2;
+ // storeFront.layer  = 30;
+//  storeBack.layer = 19;
+  if (storeFront5.layer < whaleMermaid.layer)
+  {
+    storeFront5.layer = whaleMermaid.layer +20;
+  }
+  /*if (storeBack.layer > whaleMermaid.layer)
+  {
+    storeBack.layer = whaleMermaid.layer -1;
+  }
+  */
+  if (nextText6.mouse.presses())
   {
     screen = 777;
+    nextText6.y = -4500;
   }
 }
   
   if (screen == 777)
   {
     mermaid4b();
-     
-    if (kb.presses('e'))
+      whaleMermaid.image = MerHgtv2Img;
+    if (nextText7.mouse.presses())
     {
       player.y = 350;
       player.x = 20;
-      storeFront.y = -9000;
-      storeBack.y = -90000;
-      storeFront.layer = -1;
-      storeBack.layer = -1;
+      stores.removeAll(); 
+   //   storeFront.y = -9000;
+   //   storeBack.y = -90000;
+    //  storeFront.layer = -1;
+   //   storeBack.layer = -1;
       corals.removeAll();
       rocks.removeAll();
-      storeBack5.remove();
-      storeFront5.remove();
+      storeBack5.y = -90000;
+      storeFront5.y = -90000;
       textBubbles.removeAll();
       whaleMermaid.remove();
+      nextText7.remove();
       playLvl5();
       screen =70;
     }
@@ -2634,14 +3531,15 @@ if (screen == 778)
     background(backImg5);
     SND1.stop(); 
     opening.stop(); 
-
+    endMusic(); 
   
 
     playerSetUp();
     dash();
-    if(totHealth == 0){
+    if(totHealth <= 0){
+       deathCount6++;
       screen = 105;
-      enemies.remove(); 
+      enemies.removeAll(); 
 
     }
     if (player.colliding(volcanoFish)){
@@ -2651,31 +3549,43 @@ if (screen == 778)
 
     if (player.overlapping(invis7))
       {
-    
-        txt7 = new textBubbles.Sprite(textBubbleImg, 420, 200, "n");
-        txt7.text = "RUN.";
-          txt7.textSize = 30;
+  
+        txt8.y = 200; 
+        textStyle(BOLD);
+        txt8.text = "RUN.";
+          txt8.textSize = 30;
         player.vel.x = 0; 
          player.vel.y = 0;
-       
+        opening21.stop();
+        opening21.setVolume(0);
+        sC5 = true; 
         
         invis7.remove(); 
-        volcanoFish.vel.x = -3.5; 
+        volcanoFish.vel.x = -5; 
         stopper.remove(); 
-        lvl5Music(); 
+        veC2 = true; 
+      
       }
+
+    if(veC2 == true && dramaticSND.isPlaying() == false )
+    {
+     dramaticSND.play();
+    }
+
+  
+   
 
   
 
-   if(player.x<= 1500 && dramaticSND.isPlaying() == false){
-     dramaticSND.play(); 
-   }
+//   if(player.x<= 1500 && dramaticSND.isPlaying() == false){
+ //    dramaticSND.play(); 
+ //  }
 
   
     if (f1.y >= 500 || f1.overlapping(player)) 
        {
          f1.y = 0;
-       f1.x = random(-720, -1550);
+       f1.x = random(-720, -2550);
        f1.vel.y = random(5, 8);
          f1.scale = random(0.5, 1); 
        } 
@@ -2683,14 +3593,14 @@ if (screen == 778)
        if (f2.y >= 500 || f2.overlapping(player)) 
        {
          f2.y = 0;
-       f2.x = random(-720, -1550);
+       f2.x = random(-720, -2550);
        f2.vel.y = random(5, 8);
          f2.scale = random(0.5, 1); 
        } 
        if (f3.y >= 500||  f3.overlapping(player)) 
        {
          f3.y = 0;
-       f3.x = random(-720, -1550);
+       f3.x = random(-720, -2550);
        f3.vel.y = random(5, 8);
          f3.scale = random(0.5, 1); 
 
@@ -2698,7 +3608,7 @@ if (screen == 778)
         if (f4.y >= 500||  f4.overlapping(player)) 
         {
           f4.y = 0;
-        f4.x = random(-720, -1550);
+        f4.x = random(-720, -2550);
         f4.vel.y = random(5, 8);
           f4.scale = random(0.5, 1); 
         } 
@@ -2706,10 +3616,33 @@ if (screen == 778)
         if (f5.y >= 500||  f5.overlapping(player)) 
         {
          f5.y = 0;
-        f5.x = random(-720, -1550);
+        f5.x = random(-720, -2550);
         f5.vel.y = random(5, 8);
           f5.scale = random(0.5, 1); 
         } 
+
+    if (f6.y >= 500||  f6.overlapping(player)) 
+    {
+     f6.y = 0;
+    f6.x = random(-720, -2550);
+    f6.vel.y = random(5, 8);
+      f6.scale = random(0.5, 1); 
+    } 
+    if (f7.y >= 500||  f7.overlapping(player)) 
+    {
+     f7.y = 0;
+    f7.x = random(-720, -2550);
+    f7.vel.y = random(5, 8);
+      f7.scale = random(0.5, 1); 
+    } 
+    if (f8.y >= 500||  f8.overlapping(player)) 
+    {
+     f8.y = 0;
+    f8.x = random(-720, -2550);
+    f8.vel.y = random(5, 8);
+      f8.scale = random(0.5, 1); 
+    } 
+    
     if((player.overlaps(invis07)))
       {
         eMove2 = true; 
@@ -2717,7 +3650,7 @@ if (screen == 778)
         eMove4 = true;
         eMove5 = true;
         eMove6 = true;
-
+        veC1 = true; 
 
       }
 
@@ -2858,11 +3791,52 @@ if (screen == 778)
       }
     }
 
+    if (menuCheck % 2 != 0){
+        volcanoFish.vel.x = 0; 
+      //Enemies corurpted fish// 
+      eMove2 = false; 
+      eMove3 =  false;
+      eMove4 =  false;
+      eMove5 =  false;
+      eMove6 =  false;
+      e20.vel.x = 0; 
+      e21.vel.x = 0;
+      e20.vel.y = 0;
+      e21.vel.y = 0; 
+
+      e22.vel.x = 0; 
+      e23.vel.x = 0;
+      e22.vel.y = 0;
+      e23.vel.y = 0; 
+
+      e24.vel.x = 0; 
+    
+      e24.vel.y = 0;
+   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      h1.speed = 0; 
+      h2.speed = 0; 
+      h3.speed = 0; 
+      
+      canHurt = false; 
+    } else {
+      if(veC1 == true){
+        eMove2 = true; 
+        eMove3 =  true;
+        eMove4 =  true;
+        eMove5 =  true;
+        eMove6 =  true;
+      }
+      if(veC2 == true && veC3 == false){
+        volcanoFish.vel.x = -3.5; 
+      }
+      canHurt = true; 
+    }
+
 
 
 
     
-    if(player.x <= -3300 && player.x >= -4750){
+    if(player.x <= -4300 && player.x >= -5750){
      light.y = player.y;
       g3.y = player.y;
       
@@ -2918,17 +3892,26 @@ if (screen == 778)
     }
 
     if(light.overlapping(h1) || g3.overlapping(h1)){
+      if(menuCheck % 2 == 0){
       h1.moveTo(player);
+        h1.speed = 1; 
+      }
       h1.image = hiderImg; 
     }
 
     if(light.overlapping(h2) || g3.overlapping(h2)){
+      if(menuCheck % 2 == 0){
       h2.moveTo(player);
+        h2.speed =2;
+      }
       h2.image = hiderImg; 
     }
 
     if(light.overlapping(h3) || g3.overlapping(h3)){
+      if(menuCheck % 2 == 0){
       h3.moveTo(player);
+        h3.speed = 1; 
+      }
       h3.image = hiderImg; 
     }
 
@@ -2943,7 +3926,7 @@ if (screen == 778)
     if (f11.y >= 500 || f11.overlapping(player)) 
        {
          f11.y = 0;
-       f11.x = random(-4900, -6550);
+       f11.x = random(-5900, -7550);
        f11.vel.y = random(1,4);
          f11.scale = random(0.5, 1); 
        } 
@@ -2951,14 +3934,14 @@ if (screen == 778)
        if (f12.y >= 500 || f12.overlapping(player)) 
        {
          f12.y = 0;
-       f12.x = random(-4900, -6550);
+       f12.x = random(-5900, -7550);
        f12.vel.y = random(1,4);
          f12.scale = random(0.5, 1); 
        } 
        if (f13.y >= 500||  f3.overlapping(player)) 
        {
          f13.y = 0;
-       f13.x = random(-4900, -6550);
+       f13.x = random(-5900, -7550);
        f13.vel.y = random(1,4);
          f13.scale = random(0.5, 1); 
 
@@ -2966,7 +3949,7 @@ if (screen == 778)
         if (f14.y >= 500||  f14.overlapping(player)) 
         {
           f14.y = 0;
-        f14.x = random(-4900, -6550);
+        f14.x = random(-5900, -7550);
         f14.vel.y = random(1,4);
           f14.scale = random(0.5, 1); 
         } 
@@ -2974,7 +3957,7 @@ if (screen == 778)
         if (f15.y >= 500||  f15.overlapping(player)) 
         {
          f15.y = 0;
-        f15.x = random(-4900, -6550);
+        f15.x = random(-5900, -7550);
         f15.vel.y = random(1,4);
           f15.scale = random(0.5, 1); 
         } 
@@ -2995,6 +3978,18 @@ if (screen == 778)
       if(f5.overlapping(player)){
         f5.y = 0; 
       }
+
+    if(f6.overlapping(player)){
+      f6.y = 0; 
+    }
+    if(f7.overlapping(player)){
+      f7.y = 0; 
+    }
+
+    if(f8.overlapping(player)){
+      f8.y = 0; 
+    }
+
     
       if(f11.overlapping(player)){
         f11.y = 0; 
@@ -3016,12 +4011,20 @@ if (screen == 778)
     if (player.overlapping(invis1))
     {
     
-      txt7 = new textBubbles.Sprite(textBubbleImg, -5990, 200, "n");
-      txt7.text = "HIDE.";
+      txt7 = new textBubbles.Sprite(textBubbleImg, -6690, 200, "n");
+      txt7.text = "HIDE!";
         txt7.textSize = 30;
       player.vel.x = 0; 
        player.vel.y = 0;
+      sC5 = false; 
+      sC6 = true; 
       invis1.remove(); 
+    }
+
+    if(txt7 && dramatic2SND.isPlaying() == false){
+      dramaticSND.stop();
+      dramaticSND.setVolume(0);
+      dramatic2SND.play(); 
     }
 
     if(volcanoFish.x <= -6800){
@@ -3029,6 +4032,7 @@ if (screen == 778)
       vr115.remove();
       vr118.remove(); 
       vCheck = true; 
+      txt7.remove(); 
     }
     if(((player.x - (volcanoFish.x - (volcanoFish.width/2))) >=0 ) && (vCheck == false)){
       totHealth --;
@@ -3041,8 +4045,10 @@ if (screen == 778)
       vCheck = false; 
     }
 
-    if(volcanoFish.x <= -8000){
+    if(volcanoFish.x <= -9000){
       volcanoFish.vel.x = 0; 
+      volcanoFish.x = -9000; 
+      veC3 = true; 
       vCheck = true; 
       volcanoFish.mirror.x = true; 
       volcanoFish.collider = "k"; 
@@ -3076,7 +4082,8 @@ if (screen == 778)
   if (player.overlapping(invis08))
   {
 
-    txt8 = new textBubbles.Sprite(textBubbleImg, -6900, 200, "n");
+    txt8 = new textBubbles.Sprite(textBubbleImg, -7800, 200, "n");
+    textStyle(NORMAL);
     txt8.text = "It's stuck!\nNow's your chance \nto fight it.";
       txt8.textSize = 15;
     player.vel.x = 0; 
@@ -3088,12 +4095,15 @@ if (screen == 778)
     
     if(player.collides(lvl5End))
     {
-      lvl5End.remove();
-      platforms.remove(); 
-      enemies.remove();
-      lamps.remove();
+      lvl5End.y = -1000;
+      g1.y = -1000;
+    //  textBubbles.removeAll(); 
+      platforms.removeAll(); 
+      enemies.removeAll();
+      lamps.removeAll();
       dramaticSND.stop();
-
+      dramatic2SND.stop();
+      dramatic2SND.setVolume(0);
       player.y = 350;
       player.x = 20; 
       camera.x=9000; 
@@ -3103,43 +4113,49 @@ if (screen == 778)
   if(screen == 29){ // Abi mermaid/end screen?
    storeOpen();
     mermaid5a(); 
-    if(!storeBack6)  {
-       storeBack6 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeBack6.layer = 10;
-     }
-    if(!storeFront6)  {
-       storeFront6 = new Sprite(storeBackImg, camera.x, height/2, "n");
-       storeFront6.layer = 10;
-     }
-    storeFront.y = height/2;
-    storeBack.y = height/2;
-    storeFront.layer  = 30;
-    storeBack.layer = 19;
-    if(kb.presses("n"))
+   
+   
+ 
+
+    if (storeFront6.layer < volcanoMermaid.layer)
+    {
+      storeFront6.layer = volcanoMermaid.layer +1;
+    }
+    if (storeBack6.layer > volcanoMermaid.layer)
+    {
+      storeBack6.layer = volcanoMermaid.layer -1;
+    }
+    if(nextText9.mouse.presses())
     {
       
       screen = 99; 
+      nextText9.y = -4500;
     } 
 
   } 
   if (screen == 99)
   {
+    
     mermaid5b();
-    if (kb.presses('e'))
+     volcanoMermaid.image = MerAbi2Img;
+    if (nextText10.mouse.presses())
     {
       player.vel.y = 0;
       player.vel.x = 0;
-      storeFront.y = -9000;
-      storeBack.y = -90000;
-      storeBack6.remove();
-      storeFront6.remove();
-      storeFront.layer = -1;
-      storeBack.layer = -1;
+      stores.removeAll(); 
+//      storeFront.y = -9000;
+    //  storeBack.y = -90000;
+     // storeBack6.y = -90000;
+     // storeFront6.y = -90000;
+    //  storeFront.layer = -1;
+    //  storeBack.layer = -1;
       corals.removeAll();
       rocks.removeAll();
+      nextText10.y = -45000;
       textBubbles.removeAll();
       SND1.stop();
-      
+      dramatic2SND.stop();
+      dramatic2SND.setVolume(0);
       screen =80;
     }
   }

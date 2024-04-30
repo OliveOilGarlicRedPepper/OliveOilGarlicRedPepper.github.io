@@ -1,0 +1,7 @@
+#loader{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #1b5f7a url('assets/FishG.gif') no-repeat center;
+  z-index: 999;
+}
